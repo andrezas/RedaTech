@@ -7,7 +7,14 @@
 
 	<persistence-unit name="redatech" transaction-type="RESOURCE_LOCAL">
 	
-		<class>Aluno</class>
+		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno</class>
+		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Comentario</class>
+		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Midia</class>
+		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Professor</class>
+		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Redacao</class>
+		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Turma</class>
+		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Usuario</class>
+		
 		<properties>
 			<!--  Propriedades da conexão com o Banco de Dados -->
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.4.116:5432/redatech" />
