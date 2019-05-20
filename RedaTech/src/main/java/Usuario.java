@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario {
+public class Usuario implements Identificavel{
 	@Id
 	private Long id;
 	
