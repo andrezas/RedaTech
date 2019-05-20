@@ -1,3 +1,4 @@
+package br.edu.ifpb.esperanca.daw2.redatech.entities;
 import java.util.Set;
 
 import javax.persistence.Entity;

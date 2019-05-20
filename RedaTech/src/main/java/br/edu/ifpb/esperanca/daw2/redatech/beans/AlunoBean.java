@@ -1,12 +1,17 @@
+package br.edu.ifpb.esperanca.daw2.redatech.beans;
 
 
 import java.io.Serializable;
+
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno;
+import br.edu.ifpb.esperanca.daw2.redatech.services.AlunoService;
 
 @ViewScoped
 @Named

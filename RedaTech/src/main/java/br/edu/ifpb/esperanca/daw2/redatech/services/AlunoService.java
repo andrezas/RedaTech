@@ -1,3 +1,4 @@
+package br.edu.ifpb.esperanca.daw2.redatech.services;
 
 
 import java.io.Serializable;
@@ -5,6 +6,10 @@ import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+
+import br.edu.ifpb.esperanca.daw2.redatech.dao.AlunoDAO;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno;
+import br.edu.ifpb.esperanca.daw2.redatech.util.TransacionalCdi;
 
 @ApplicationScoped
 public class AlunoService implements Serializable, Service<Aluno> {

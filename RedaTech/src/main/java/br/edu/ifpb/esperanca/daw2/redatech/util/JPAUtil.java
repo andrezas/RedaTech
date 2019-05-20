@@ -1,3 +1,4 @@
+package br.edu.ifpb.esperanca.daw2.redatech.util;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
