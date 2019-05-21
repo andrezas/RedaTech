@@ -1,19 +1,27 @@
 package br.edu.ifpb.esperanca.daw2.redatech.entities;
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Usuario")
 public class Usuario implements Identificavel{
 	@Id
 	private Long id;
-	
+	@Column
 	private String email;
+	@Column
 	private String nome;
+	@Column
 	private Calendar nascimento;
+	@Column
 	private String nomeUsuário;
+	@Column
 	private String senha;
+	@Column
 	private String grupo;
 	
 	public Long getId() {
