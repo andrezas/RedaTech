@@ -9,17 +9,17 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Midia")
-public class Midia {
+@Table(name = "Material")
+public class Material {
 	
 	@Id
 	private Long id;
 	
 	@Column
-	private String nome;
+	private String titulo;
 	
 	@ManyToMany
-	@JoinTable(name = "prof_midia")
+	@JoinTable(name = "prof_Material")
 	private Set<Professor>professores;
 
 	public Long getId() {
@@ -31,11 +31,11 @@ public class Midia {
 	}
 
 	public String getNome() {
-		return nome;
+		return titulo;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.titulo = nome;
 	}
 
 	public Set<Professor> getProfessores() {
@@ -54,16 +54,16 @@ public class Midia {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Midia other = (Midia) obj;
+		Material other = (Material) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
+		if (titulo == null) {
+			if (other.titulo != null)
 				return false;
-		} else if (!nome.equals(other.nome))
+		} else if (!titulo.equals(other.titulo))
 			return false;
 		if (professores == null) {
 			if (other.professores != null)
@@ -75,7 +75,7 @@ public class Midia {
 
 	@Override
 	public String toString() {
-		return "Midia [id=" + id + ", nome=" + nome + ", professores=" + professores + "]";
+		return "Midia [id=" + id + ", nome=" + titulo + ", professores=" + professores + "]";
 	}
 	
 	

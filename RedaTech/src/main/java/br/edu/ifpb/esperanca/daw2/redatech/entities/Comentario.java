@@ -1,11 +1,12 @@
 package br.edu.ifpb.esperanca.daw2.redatech.entities;
 import java.util.Calendar;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,14 +15,15 @@ public class Comentario {
 	@Id
 	private long id;
 	
-	@ManyToOne
-	@JoinColumn(name="id")
+	@ManyToMany
+	@JoinTable(name = "Comen_prof")
 	private Professor professor;
 	
 	@Column
 	private Calendar data;
+	
 	@Column
-	private Usuario usuario;
+	private Set<Usuario> usuario;
 	
 	public long getId() {
 		return id;
@@ -41,13 +43,24 @@ public class Comentario {
 	public void setData(Calendar data) {
 		this.data = data;
 	}
-	public Usuario getUsuario() {
+	
+	
+	public Set<Usuario> getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(Set<Usuario> usuario) {
 		this.usuario = usuario;
 	}
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((professor == null) ? 0 : professor.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,10 +89,7 @@ public class Comentario {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Comentario [id=" + id + ", professor=" + professor + ", data=" + data + ", usuario=" + usuario + "]";
-	}
+	
 	
 	
 	

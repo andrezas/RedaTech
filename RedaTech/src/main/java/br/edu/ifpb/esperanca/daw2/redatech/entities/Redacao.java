@@ -16,10 +16,9 @@ public class Redacao {
 	
 	@Id
 	private Long id;
+	
 	@Column
 	private String tema;
-	@Column
-	private Integer nota; 
 	
 	@ManyToOne
 	@JoinColumn(name ="id")
@@ -29,6 +28,9 @@ public class Redacao {
 	@JoinColumn(name ="id")
 	private Professor corretor;
 	
+	@Column
+	private Material material;
+
 	@ManyToMany
 	@JoinTable(name = "red_com")
 	private Set<Comentario>comentarios;
@@ -49,14 +51,6 @@ public class Redacao {
 		this.tema = tema;
 	}
 
-	public Integer getNota() {
-		return nota;
-	}
-
-	public void setNota(Integer nota) {
-		this.nota = nota;
-	}
-
 	public Aluno getAutor() {
 		return autor;
 	}
@@ -71,6 +65,14 @@ public class Redacao {
 
 	public void setCorretor(Professor corretor) {
 		this.corretor = corretor;
+	}
+	
+	public Material getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(Material material) {
+		this.material = material;
 	}
 
 	public Set<Comentario> getComentarios() {
@@ -110,11 +112,6 @@ public class Redacao {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nota == null) {
-			if (other.nota != null)
-				return false;
-		} else if (!nota.equals(other.nota))
-			return false;
 		if (tema == null) {
 			if (other.tema != null)
 				return false;
@@ -125,7 +122,7 @@ public class Redacao {
 
 	@Override
 	public String toString() {
-		return "Redacao [id=" + id + ", tema=" + tema + ", nota=" + nota + ", autor=" + autor + ", corretor=" + corretor
+		return "Redacao [id=" + id + ", tema=" + tema + ", autor=" + autor + ", corretor=" + corretor
 				+ ", comentarios=" + comentarios + "]";
 	}
 	
