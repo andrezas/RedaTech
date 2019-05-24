@@ -5,17 +5,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Aula")
-public class Aula {
+public class Aula implements Identificavel{
 	
-	private long id;
+	private Long id;
 	
 	private Material material;
 	private String proposta;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Material getMaterial() {

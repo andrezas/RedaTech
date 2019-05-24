@@ -7,16 +7,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Nota")
-public class Nota {
+public class Nota implements Identificavel{
 	
-	private long id;
+	private Long id;
 	private ArrayList<String> competencia;
 	private ArrayList<String> encaminhamentos;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public ArrayList<String> getCompetencia() {

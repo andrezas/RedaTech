@@ -11,9 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Comentario")
-public class Comentario {
+public class Comentario implements Identificavel{
 	@Id
-	private long id;
+	private Long id;
 	
 	@ManyToMany
 	@JoinTable(name = "Comen_prof")
@@ -25,10 +25,10 @@ public class Comentario {
 	@Column
 	private Set<Usuario> usuario;
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Professor getProfessor() {

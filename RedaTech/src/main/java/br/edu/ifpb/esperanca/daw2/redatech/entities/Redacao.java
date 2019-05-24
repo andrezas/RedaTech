@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Redacao")
-public class Redacao {
+public class Redacao implements Identificavel{
 	
 	@Id
 	private Long id;

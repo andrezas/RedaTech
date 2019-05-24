@@ -9,10 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Turma")
-public class Turma {
+public class Turma implements Identificavel{
 	
 	@Id
-	private long id;
+	private Long id;
 	
 	@ManyToMany
 	private Set<Aluno> alunos;
@@ -21,11 +21,11 @@ public class Turma {
 	@JoinColumn(name="id")
 	private Professor professor;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
