@@ -3,6 +3,8 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,10 +17,11 @@ public class Turma implements Identificavel{
 	private Long id;
 	
 	@ManyToMany
+	@JoinTable(name="aluno_turma", joinColumns=@JoinColumn(name="id_turma"), inverseJoinColumns=@JoinColumn(name="id_aluno"))
 	private Set<Aluno> alunos;
 	
 	@ManyToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="id_professor")
 	private Professor professor;
 
 	public Long getId() {
@@ -43,6 +46,11 @@ public class Turma implements Identificavel{
 
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
+	}
+
+	public Turma() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

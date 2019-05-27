@@ -67,6 +67,11 @@ public class Usuario implements Identificavel{
 	public void setGrupo(String grupo) {
 		this.grupo = grupo;
 	}
+	
+	public Usuario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,18 +22,18 @@ public class Redacao implements Identificavel{
 	private String tema;
 	
 	@ManyToOne
-	@JoinColumn(name ="id")
+	@JoinColumn(name ="id_aluno")
 	private Aluno autor;
 	
 	@ManyToOne
-	@JoinColumn(name ="id")
+	@JoinColumn(name ="id_professor")
 	private Professor corretor;
 	
 	@Column
 	private Material material;
 
-	@ManyToMany
-	@JoinTable(name = "red_com")
+	@OneToMany
+	@JoinColumn(name = "id_comentario")
 	private Set<Comentario>comentarios;
 
 	public Long getId() {
@@ -81,6 +82,11 @@ public class Redacao implements Identificavel{
 
 	public void setComentarios(Set<Comentario> comentarios) {
 		this.comentarios = comentarios;
+	}
+
+	public Redacao() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

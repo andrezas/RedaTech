@@ -4,8 +4,9 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,8 +19,8 @@ public class Material implements Identificavel{
 	@Column
 	private String titulo;
 	
-	@ManyToMany
-	@JoinTable(name = "prof_Material")
+	@OneToMany
+	@JoinColumn(name="id_professor")
 	private Set<Professor>professores;
 
 	public Long getId() {
@@ -30,12 +31,12 @@ public class Material implements Identificavel{
 		this.id = id;
 	}
 
-	public String getNome() {
+	public String getTitulo() {
 		return titulo;
 	}
 
-	public void setNome(String nome) {
-		this.titulo = nome;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Set<Professor> getProfessores() {
@@ -44,6 +45,21 @@ public class Material implements Identificavel{
 
 	public void setProfessores(Set<Professor> professores) {
 		this.professores = professores;
+	}
+
+	public Material() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((professores == null) ? 0 : professores.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
 	}
 
 	@Override
@@ -60,24 +76,19 @@ public class Material implements Identificavel{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (titulo == null) {
-			if (other.titulo != null)
-				return false;
-		} else if (!titulo.equals(other.titulo))
-			return false;
 		if (professores == null) {
 			if (other.professores != null)
 				return false;
 		} else if (!professores.equals(other.professores))
 			return false;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Midia [id=" + id + ", nome=" + titulo + ", professores=" + professores + "]";
-	}
-	
-	
+
 
 }

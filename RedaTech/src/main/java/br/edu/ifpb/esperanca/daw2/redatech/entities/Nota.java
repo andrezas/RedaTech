@@ -2,15 +2,22 @@ package br.edu.ifpb.esperanca.daw2.redatech.entities;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Nota")
 public class Nota implements Identificavel{
 	
+	@Id
 	private Long id;
+	
+	@Column
 	private ArrayList<String> competencia;
+	
+	@Column
 	private ArrayList<String> encaminhamentos;
 	
 	public Long getId() {
@@ -30,6 +37,11 @@ public class Nota implements Identificavel{
 	}
 	public void setEncaminhamentos(ArrayList<String> encaminhamentos) {
 		this.encaminhamentos = encaminhamentos;
+	}
+	
+	public Nota() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int hashCode() {
