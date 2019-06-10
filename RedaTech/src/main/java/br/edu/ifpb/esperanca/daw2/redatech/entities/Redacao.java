@@ -29,6 +29,10 @@ public class Redacao implements Identificavel{
 	@JoinColumn(name ="id_professor")
 	private Professor corretor;
 	
+	@ManyToMany
+	@JoinTable(name="Redacao_NotaCompetencia", joinColumns=@JoinColumn(name="id_Redacao"), inverseJoinColumns=@JoinColumn(name="id_NotaCompetencia"))
+	private Set<NotaCompetencia> notascompetencia;
+	
 	@Column
 	private String redacao;
 	

@@ -15,9 +15,6 @@ public class Competencia implements Identificavel{
 	private Long id;
 	@Column
 	private String competencia;
-	@ManyToOne
-	@JoinColumn(name ="id_nota")
-	private Nota nota;
 	
 	public Long getId() {
 		return id;
@@ -31,23 +28,12 @@ public class Competencia implements Identificavel{
 	public void setCompetencia(String competencia) {
 		this.competencia = competencia;
 	}
-	public Nota getNota() {
-		return nota;
-	}
-	public void setNota(Nota nota) {
-		this.nota = nota;
-	}
-	public Competencia() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((competencia == null) ? 0 : competencia.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nota == null) ? 0 : nota.hashCode());
 		return result;
 	}
 	@Override
@@ -69,13 +55,11 @@ public class Competencia implements Identificavel{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nota == null) {
-			if (other.nota != null)
-				return false;
-		} else if (!nota.equals(other.nota))
-			return false;
 		return true;
 	}
+	
+	
+	
 	
 
 }

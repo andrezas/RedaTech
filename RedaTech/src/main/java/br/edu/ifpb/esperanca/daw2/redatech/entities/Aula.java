@@ -5,8 +5,10 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,8 +22,11 @@ public class Aula implements Identificavel{
 	private String proposta;
 	
 	@ManyToMany
-	@JoinTable(name = "Aula_Material")
+	@JoinTable(name="Aula_Material", joinColumns=@JoinColumn(name="id_Aula"), inverseJoinColumns=@JoinColumn(name="id_Material"))
 	private Set<Material> material;
+	
+	@ManyToOne
+	private Professor professor;
 
 	public Long getId() {
 		return id;

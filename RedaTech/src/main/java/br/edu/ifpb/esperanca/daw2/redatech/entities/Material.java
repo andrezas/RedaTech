@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,9 +20,8 @@ public class Material implements Identificavel{
 	private Long id;
 	@Column
 	private String titulo;
-	@OneToMany
-	@JoinColumn(name="id_professor")
-	private Set<Professor>professores;
+	@ManyToOne
+	private Professor professor;
 	@Column
 	private String tipo;
 	@Column
@@ -30,6 +30,7 @@ public class Material implements Identificavel{
 	private URL link;
 	@Column
 	private File arquivo;
+	
 	public Long getId() {
 		return id;
 	}
@@ -42,11 +43,11 @@ public class Material implements Identificavel{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Set<Professor> getProfessores() {
-		return professores;
+	public Professor getProfessor() {
+		return professor;
 	}
-	public void setProfessores(Set<Professor> professores) {
-		this.professores = professores;
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 	public String getTipo() {
 		return tipo;
@@ -72,10 +73,6 @@ public class Material implements Identificavel{
 	public void setArquivo(File arquivo) {
 		this.arquivo = arquivo;
 	}
-	public Material() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -84,7 +81,7 @@ public class Material implements Identificavel{
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((link == null) ? 0 : link.hashCode());
-		result = prime * result + ((professores == null) ? 0 : professores.hashCode());
+		result = prime * result + ((professor == null) ? 0 : professor.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
@@ -118,10 +115,10 @@ public class Material implements Identificavel{
 				return false;
 		} else if (!link.equals(other.link))
 			return false;
-		if (professores == null) {
-			if (other.professores != null)
+		if (professor == null) {
+			if (other.professor != null)
 				return false;
-		} else if (!professores.equals(other.professores))
+		} else if (!professor.equals(other.professor))
 			return false;
 		if (tipo == null) {
 			if (other.tipo != null)
@@ -136,7 +133,7 @@ public class Material implements Identificavel{
 		return true;
 	}
 	
-
+	
 	
 
 
