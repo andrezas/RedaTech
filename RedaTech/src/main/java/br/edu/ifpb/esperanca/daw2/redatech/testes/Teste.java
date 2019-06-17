@@ -1,20 +1,21 @@
 package br.edu.ifpb.esperanca.daw2.redatech.testes;
 
-import java.util.Set;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import br.edu.ifpb.esperanca.daw2.redatech.entities.Turma;
-import br.edu.ifpb.esperanca.daw2.redatech.entities.Professor;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Aula;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Comentario;
-import br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno;
-import br.edu.ifpb.esperanca.daw2.redatech.entities.Material;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Nota;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Professor;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Redacao;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Turma;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Usuario;
 import br.edu.ifpb.esperanca.daw2.redatech.interfaces.RedaTechInt;
 
@@ -92,12 +93,12 @@ class Teste {
 	@Test
 	void  criarTurma() {
 		RedaTechInt h = null;
-		Set<Aluno> alunos =  new Set<Aluno>();
+		Set<Aluno> alunos =  new HashSet<Aluno>();
 		Turma turma = new Turma();
 		Professor prof = new Professor();
 		Turma t = h.criarTurma(prof, turma, alunos);
-		assertNotNull(h);
-		assertEquals("", h.getId());
+		assertNotNull(t);
+		assertNotNull(t.getId());
 
 	}
 	
