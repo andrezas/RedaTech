@@ -18,15 +18,16 @@ public interface RedaTechInt {
 	
 	public Usuario cadastrarUsu(Usuario usuario);
 	public void acessarMaterial(Aluno aluno, Material material);
-	public void enviarRedacao(Aluno aluno, Redacao redacao);
+	public Redacao enviarRedacao(Aluno aluno, Redacao redacao);
 	public Aula visualizarAula(Usuario usuario, Aula aula);
 	public Redacao editarRedacao(Aluno aluno, Redacao redacao);
 	public Material postarMaterial(Professor professor, Material material);
-	public Nota correcao(Redacao redacao, Nota nota);
-	public Comentario enviarComentario(Professor professor, Redacao redacao);
+	public Nota correcao(Redacao redacao, Nota nota, Professor professor);
+	public Comentario enviarComentario(Professor professor, Redacao redacao,Comentario comentario);
 	public Turma criarTurma(Professor professor, Turma turma,Set<Aluno> alunos);
 	public void addAlunoTurma(Aluno aluno, Turma turma);
 	public Aula postarAula(Professor professor, Aula aula);
+
 	 
 
 }

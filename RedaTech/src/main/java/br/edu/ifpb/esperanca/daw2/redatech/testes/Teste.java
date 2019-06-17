@@ -1,5 +1,6 @@
 package br.edu.ifpb.esperanca.daw2.redatech.testes;
 
+import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Set;
@@ -9,8 +10,10 @@ import org.junit.jupiter.api.Test;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Turma;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Professor;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Aula;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Comentario;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Material;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Nota;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Redacao;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Usuario;
 import br.edu.ifpb.esperanca.daw2.redatech.interfaces.RedaTechInt;
@@ -40,20 +43,12 @@ class Teste {
 		assertEquals("", r.getId());
    }
 	
-	@Test
-	void  visualizarAula() {
-		RedaTechInt c = null;
-		Usuario usuario =  new Usuario();
-		Aula a = c.visualizarAula(usuario, aula);
-		assertNotNull(a);
-		assertEquals("", a.getId());
-
-	}
 	
 	@Test
 	void  editarRedacao() {
 		RedaTechInt d = null;
 		Aluno aluno =  new Aluno();
+		Redacao redacao = new Redacao();
 		Redacao r = d.editarRedacao(aluno, redacao);
 		assertNotNull(r);
 		assertEquals("", r.getId());
@@ -63,7 +58,8 @@ class Teste {
 	void  postarAula() {
 		RedaTechInt e = null;
 		Professor prof =  new Professor();
-		Aula a = e.postarAula(professor);
+		Aula aula = new Aula();
+		Aula a = e.postarAula(prof, aula);
 		assertNotNull(a);
 		assertEquals("", a.getId());
 
@@ -72,8 +68,10 @@ class Teste {
 	@Test
 	void  correcao() {
 		RedaTechInt f = null;
-		Redacao r =  new Redacao();
-		Nota n = f.correcao(redacao);
+		Redacao redacao =  new Redacao();
+		Professor prof = new Professor();
+		Nota nota = new Nota();
+		Nota n = f.correcao(redacao, nota,prof);
 		assertNotNull(n);
 		assertEquals("", n.getId());
 
@@ -84,7 +82,8 @@ class Teste {
 		RedaTechInt g = null;
 		Professor prof =  new Professor();
 		Redacao redacao = new Redacao();
-		Comentario c = g.enviarComentario(professor, redacao);
+		Comentario comentario =  new Comentario();
+		Comentario c = g.enviarComentario(prof, redacao,comentario);
 		assertNotNull(c);
 		assertEquals("", c.getId());
 
@@ -93,9 +92,10 @@ class Teste {
 	@Test
 	void  criarTurma() {
 		RedaTechInt h = null;
-		Aluno aluno =  new Aluno();
+		Set<Aluno> alunos =  new Set<Aluno>();
 		Turma turma = new Turma();
-		Turma t = h.criarTurma(aluno, turma);
+		Professor prof = new Professor();
+		Turma t = h.criarTurma(prof, turma, alunos);
 		assertNotNull(h);
 		assertEquals("", h.getId());
 
