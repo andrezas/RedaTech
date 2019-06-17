@@ -101,14 +101,5 @@ class Teste {
 
 	}
 	
-	@Test
-	void  postarAula() {
-		RedaTechInt i = null;
-		Aula aula =  new Aula();
-		Professor professor = new Professor();
-		Aula a = i.postarAula(professor, aula);
-		assertNotNull(i);
-		assertEquals("", i.getId());
-
-	}
+	
 }
