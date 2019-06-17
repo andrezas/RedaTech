@@ -16,6 +16,9 @@ public class Turma implements Identificavel{
 	@Id
 	private Long id;
 	
+
+	private String nome;
+	
 	@ManyToMany
 	@JoinTable(name="aluno_turma", joinColumns=@JoinColumn(name="id_turma"), inverseJoinColumns=@JoinColumn(name="id_aluno"))
 	private Set<Aluno> alunos;
@@ -47,10 +50,34 @@ public class Turma implements Identificavel{
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
+	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
 	public Turma() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((alunos == null) ? 0 : alunos.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((professor == null) ? 0 : professor.hashCode());
+		return result;
 	}
 
 	@Override
@@ -67,7 +94,15 @@ public class Turma implements Identificavel{
 				return false;
 		} else if (!alunos.equals(other.alunos))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
 			return false;
 		if (professor == null) {
 			if (other.professor != null)
@@ -79,8 +114,9 @@ public class Turma implements Identificavel{
 
 	@Override
 	public String toString() {
-		return "Turma [id=" + id + ", alunos=" + alunos + ", professor=" + professor + "]";
+		return "Turma [id=" + id + ", nome=" + nome + ", alunos=" + alunos + ", professor=" + professor + "]";
 	}
+
 	
 	
 	

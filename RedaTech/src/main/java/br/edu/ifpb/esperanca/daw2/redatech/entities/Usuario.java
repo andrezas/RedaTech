@@ -13,7 +13,8 @@ import javax.persistence.Table;
 public class Usuario implements Identificavel{
 	@Id
 	private Long id;
-	@Column
+	
+	@Column(unique=true)
 	private String email;
 	@Column
 	private String nome;
