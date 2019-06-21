@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Aula;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Comentario;
-import br.edu.ifpb.esperanca.daw2.redatech.entities.Nota;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.NotaCompetencia;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Professor;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Redacao;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Turma;
@@ -71,8 +71,8 @@ class Teste {
 		RedaTechInt f = null;
 		Redacao redacao =  new Redacao();
 		Professor prof = new Professor();
-		Nota nota = new Nota();
-		Nota n = f.correcao(redacao, nota,prof);
+		NotaCompetencia nota = new NotaCompetencia();
+		NotaCompetencia n = f.correcao(redacao, nota,prof);
 		assertNotNull(n);
 		assertEquals("", n.getId());
 
@@ -102,5 +102,12 @@ class Teste {
 
 	}
 	
+	@Test
+	void addAlunoTurma() {
+		RedaTechInt i = null;
+		Aluno aluno = new Aluno();
+		aluno.add(Aluno.getId());
+		
+	}
 	
 }
