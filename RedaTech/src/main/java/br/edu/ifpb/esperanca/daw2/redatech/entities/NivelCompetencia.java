@@ -17,13 +17,15 @@ public class NivelCompetencia implements Identificavel {
 	@Id
 	private Long id;
 	
+	private Integer nivel;
+	
+	private Integer pontos;
+	
 	@ManyToOne
 	@JoinColumn(name ="id_competencia")
 	private Competencia competencia;
 	
-	@ManyToMany
-	@JoinTable(name="NivelCompetencia_NotaCompetencia", joinColumns=@JoinColumn(name="id_NivelCompetencia"), inverseJoinColumns=@JoinColumn(name="id_NotaCompetencia"))
-	private Set<NotaCompetencia> notascompetencia;
+	private String descricao;
 
 	public Long getId() {
 		return id;
@@ -33,11 +35,56 @@ public class NivelCompetencia implements Identificavel {
 		this.id = id;
 	}
 
+	public Integer getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(Integer nivel) {
+		this.nivel = nivel;
+	}
+
+	public Integer getPontos() {
+		return pontos;
+	}
+
+	public void setPontos(Integer pontos) {
+		this.pontos = pontos;
+	}
+
+	public Competencia getCompetencia() {
+		return competencia;
+	}
+
+	public void setCompetencia(Competencia competencia) {
+		this.competencia = competencia;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public NivelCompetencia(Long id, Integer nivel, Integer pontos, Competencia competencia, String descricao) {
+		super();
+		this.id = id;
+		this.nivel = nivel;
+		this.pontos = pontos;
+		this.competencia = competencia;
+		this.descricao = descricao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((competencia == null) ? 0 : competencia.hashCode());
+		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nivel == null) ? 0 : nivel.hashCode());
+		result = prime * result + ((pontos == null) ? 0 : pontos.hashCode());
 		return result;
 	}
 
@@ -50,10 +97,32 @@ public class NivelCompetencia implements Identificavel {
 		if (getClass() != obj.getClass())
 			return false;
 		NivelCompetencia other = (NivelCompetencia) obj;
-		if (id != other.id)
+		if (competencia == null) {
+			if (other.competencia != null)
+				return false;
+		} else if (!competencia.equals(other.competencia))
+			return false;
+		if (descricao == null) {
+			if (other.descricao != null)
+				return false;
+		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nivel == null) {
+			if (other.nivel != null)
+				return false;
+		} else if (!nivel.equals(other.nivel))
+			return false;
+		if (pontos == null) {
+			if (other.pontos != null)
+				return false;
+		} else if (!pontos.equals(other.pontos))
 			return false;
 		return true;
 	}
-
 	
 }

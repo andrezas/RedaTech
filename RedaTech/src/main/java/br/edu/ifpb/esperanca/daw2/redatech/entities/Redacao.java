@@ -18,6 +18,9 @@ public class Redacao implements Identificavel{
 	@Id
 	private Long id;
 	
+	@Column 
+	private Integer notaFinal;
+	
 	@Column
 	private String tema;
 	
@@ -25,12 +28,7 @@ public class Redacao implements Identificavel{
 	@JoinColumn(name ="id_aluno")
 	private Aluno autor;
 	
-	@ManyToOne
-	@JoinColumn(name ="id_professor")
-	private Professor corretor;
-	
-	@ManyToMany
-	@JoinTable(name="Redacao_NotaCompetencia", joinColumns=@JoinColumn(name="id_Redacao"), inverseJoinColumns=@JoinColumn(name="id_NotaCompetencia"))
+	@OneToMany(mappedBy="redacao")
 	private Set<NotaCompetencia> notascompetencia;
 	
 	@Column
@@ -39,10 +37,6 @@ public class Redacao implements Identificavel{
 	@Column
 	private Material material;
 	
-	@ManyToOne
-	@JoinColumn(name ="id_competecia")
-	private Set<Competencia> competencias;
-
 	@OneToMany
 	@JoinColumn(name = "id_comentario")
 	private Set<Comentario>comentarios;
@@ -53,6 +47,14 @@ public class Redacao implements Identificavel{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Integer getNotaFinal() {
+		return notaFinal;
+	}
+
+	public void setNotaFinal(Integer notaFinal) {
+		this.notaFinal = notaFinal;
 	}
 
 	public String getTema() {
@@ -71,12 +73,12 @@ public class Redacao implements Identificavel{
 		this.autor = autor;
 	}
 
-	public Professor getCorretor() {
-		return corretor;
+	public Set<NotaCompetencia> getNotascompetencia() {
+		return notascompetencia;
 	}
 
-	public void setCorretor(Professor corretor) {
-		this.corretor = corretor;
+	public void setNotascompetencia(Set<NotaCompetencia> notascompetencia) {
+		this.notascompetencia = notascompetencia;
 	}
 
 	public String getRedacao() {
@@ -95,14 +97,6 @@ public class Redacao implements Identificavel{
 		this.material = material;
 	}
 
-	public Set<Competencia> getCompetencias() {
-		return competencias;
-	}
-
-	public void setCompetencias(Set<Competencia> competencias) {
-		this.competencias = competencias;
-	}
-
 	public Set<Comentario> getComentarios() {
 		return comentarios;
 	}
@@ -111,9 +105,17 @@ public class Redacao implements Identificavel{
 		this.comentarios = comentarios;
 	}
 
-	public Redacao() {
+	public Redacao(Long id, Integer notaFinal, String tema, Aluno autor, Set<NotaCompetencia> notascompetencia,
+			String redacao, Material material, Set<Comentario> comentarios) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.notaFinal = notaFinal;
+		this.tema = tema;
+		this.autor = autor;
+		this.notascompetencia = notascompetencia;
+		this.redacao = redacao;
+		this.material = material;
+		this.comentarios = comentarios;
 	}
 
 	@Override
@@ -122,10 +124,10 @@ public class Redacao implements Identificavel{
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
 		result = prime * result + ((comentarios == null) ? 0 : comentarios.hashCode());
-		result = prime * result + ((competencias == null) ? 0 : competencias.hashCode());
-		result = prime * result + ((corretor == null) ? 0 : corretor.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((material == null) ? 0 : material.hashCode());
+		result = prime * result + ((notaFinal == null) ? 0 : notaFinal.hashCode());
+		result = prime * result + ((notascompetencia == null) ? 0 : notascompetencia.hashCode());
 		result = prime * result + ((redacao == null) ? 0 : redacao.hashCode());
 		result = prime * result + ((tema == null) ? 0 : tema.hashCode());
 		return result;
@@ -150,16 +152,6 @@ public class Redacao implements Identificavel{
 				return false;
 		} else if (!comentarios.equals(other.comentarios))
 			return false;
-		if (competencias == null) {
-			if (other.competencias != null)
-				return false;
-		} else if (!competencias.equals(other.competencias))
-			return false;
-		if (corretor == null) {
-			if (other.corretor != null)
-				return false;
-		} else if (!corretor.equals(other.corretor))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -169,6 +161,16 @@ public class Redacao implements Identificavel{
 			if (other.material != null)
 				return false;
 		} else if (!material.equals(other.material))
+			return false;
+		if (notaFinal == null) {
+			if (other.notaFinal != null)
+				return false;
+		} else if (!notaFinal.equals(other.notaFinal))
+			return false;
+		if (notascompetencia == null) {
+			if (other.notascompetencia != null)
+				return false;
+		} else if (!notascompetencia.equals(other.notascompetencia))
 			return false;
 		if (redacao == null) {
 			if (other.redacao != null)
@@ -183,8 +185,5 @@ public class Redacao implements Identificavel{
 		return true;
 	}
 
-	
-
-	
 	
 }
