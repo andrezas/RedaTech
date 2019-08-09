@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,44 +24,10 @@ public class Aluno extends Usuario{
     @ManyToMany
 	@JoinTable(name="material_aluno", joinColumns=@JoinColumn(name="id_aluno"), inverseJoinColumns=@JoinColumn(name="id_material"))
 	private Set<Material> materiais;
+    
+    @OneToMany(mappedBy="aluno")
+	private Set<Redacao> redacao;
 
-	public String getSerie() {
-		return serie;
-	}
-
-	public void setSerie(String serie) {
-		this.serie = serie;
-	}
-
-	public Aluno() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((serie == null) ? 0 : serie.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aluno other = (Aluno) obj;
-		if (serie == null) {
-			if (other.serie != null)
-				return false;
-		} else if (!serie.equals(other.serie))
-			return false;
-		return true;
-	}
 	
 	
 
