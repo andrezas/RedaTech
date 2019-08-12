@@ -16,18 +16,16 @@ public class Usuario implements Identificavel{
 	
 	@Column(unique=true)
 	private String email;
-	@Column
+	
 	private String nome;
-	@Column
 	private Calendar nascimento;
-	@Column
 	private String nomeUsuário;
-	@Column
 	private String senha;
+	
 	@ManyToOne
 	@JoinColumn(name="id_turma")
 	private Turma turmas;
-	@Column
+	
 	private String instituicao;
 	
 	public Long getId() {

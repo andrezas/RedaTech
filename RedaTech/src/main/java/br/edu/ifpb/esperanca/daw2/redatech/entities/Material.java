@@ -18,17 +18,18 @@ public class Material implements Identificavel{
 	
 	@Id
 	private Long id;
-	@Column
+	
 	private String titulo;
+	
+	@ManyToMany(mappedBy="Aula_Material")
+	private Set<Aula> aulas;
+	
 	@ManyToOne
-	private Professor professor;
-	@Column
+	private Professor adiciona2;
+	
 	private String tipo;
-	@Column
 	private String  descricao;
-	@Column
 	private URL link;
-	@Column
 	private File arquivo;
 	
 	public Long getId() {
@@ -43,11 +44,17 @@ public class Material implements Identificavel{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Professor getProfessor() {
-		return professor;
+	public Set<Aula> getAulas() {
+		return aulas;
 	}
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
+	public void setAulas(Set<Aula> aulas) {
+		this.aulas = aulas;
+	}
+	public Professor getAdiciona2() {
+		return adiciona2;
+	}
+	public void setAdiciona2(Professor adiciona2) {
+		this.adiciona2 = adiciona2;
 	}
 	public String getTipo() {
 		return tipo;
@@ -73,15 +80,31 @@ public class Material implements Identificavel{
 	public void setArquivo(File arquivo) {
 		this.arquivo = arquivo;
 	}
+	
+	public Material(Long id, String titulo, Set<Aula> aulas, Professor adiciona2, String tipo, String descricao,
+			URL link, File arquivo) {
+		super();
+		this.id = id;
+		this.titulo = titulo;
+		this.aulas = aulas;
+		this.adiciona2 = adiciona2;
+		this.tipo = tipo;
+		this.descricao = descricao;
+		this.link = link;
+		this.arquivo = arquivo;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((adiciona2 == null) ? 0 : adiciona2.hashCode());
 		result = prime * result + ((arquivo == null) ? 0 : arquivo.hashCode());
+		result = prime * result + ((aulas == null) ? 0 : aulas.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((link == null) ? 0 : link.hashCode());
-		result = prime * result + ((professor == null) ? 0 : professor.hashCode());
 		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
@@ -95,10 +118,20 @@ public class Material implements Identificavel{
 		if (getClass() != obj.getClass())
 			return false;
 		Material other = (Material) obj;
+		if (adiciona2 == null) {
+			if (other.adiciona2 != null)
+				return false;
+		} else if (!adiciona2.equals(other.adiciona2))
+			return false;
 		if (arquivo == null) {
 			if (other.arquivo != null)
 				return false;
 		} else if (!arquivo.equals(other.arquivo))
+			return false;
+		if (aulas == null) {
+			if (other.aulas != null)
+				return false;
+		} else if (!aulas.equals(other.aulas))
 			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
@@ -115,11 +148,6 @@ public class Material implements Identificavel{
 				return false;
 		} else if (!link.equals(other.link))
 			return false;
-		if (professor == null) {
-			if (other.professor != null)
-				return false;
-		} else if (!professor.equals(other.professor))
-			return false;
 		if (tipo == null) {
 			if (other.tipo != null)
 				return false;
@@ -133,9 +161,4 @@ public class Material implements Identificavel{
 		return true;
 	}
 	
-	
-	
-
-
-
 }

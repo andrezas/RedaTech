@@ -16,11 +16,10 @@ public class Turma implements Identificavel{
 	@Id
 	private Long id;
 	
-
 	private String nome;
 	
 	@ManyToMany
-	@JoinTable(name="aluno_turma", joinColumns=@JoinColumn(name="id_turma"), inverseJoinColumns=@JoinColumn(name="id_aluno"))
+	@JoinTable(name="aluno_turma")
 	private Set<Aluno> alunos;
 	
 	@ManyToOne
@@ -33,6 +32,14 @@ public class Turma implements Identificavel{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Set<Aluno> getAlunos() {
@@ -50,24 +57,14 @@ public class Turma implements Identificavel{
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
-	
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Turma() {
+	public Turma(Long id, String nome, Set<Aluno> alunos, Professor professor) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.nome = nome;
+		this.alunos = alunos;
+		this.professor = professor;
 	}
-	
-
-	
-	
 
 	@Override
 	public int hashCode() {
@@ -111,14 +108,5 @@ public class Turma implements Identificavel{
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Turma [id=" + id + ", nome=" + nome + ", alunos=" + alunos + ", professor=" + professor + "]";
-	}
-
-	
-	
-	
 
 }

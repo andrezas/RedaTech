@@ -18,15 +18,14 @@ public class Aula implements Identificavel{
 	@Id
 	private Long id;
 	
-	@Column
 	private String proposta;
 	
 	@ManyToMany
-	@JoinTable(name="Aula_Material", joinColumns=@JoinColumn(name="id_Aula"), inverseJoinColumns=@JoinColumn(name="id_Material"))
+	@JoinTable(name="Aula_Material")
 	private Set<Material> material;
 	
 	@ManyToOne
-	private Professor professor;
+	private Professor adiciona;
 
 	public Long getId() {
 		return id;
@@ -52,15 +51,27 @@ public class Aula implements Identificavel{
 		this.material = material;
 	}
 
-	public Aula() {
+	public Professor getAdiciona() {
+		return adiciona;
+	}
+
+	public void setAdiciona(Professor adiciona) {
+		this.adiciona = adiciona;
+	}
+
+	public Aula(Long id, String proposta, Set<Material> material, Professor adiciona) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.proposta = proposta;
+		this.material = material;
+		this.adiciona = adiciona;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((adiciona == null) ? 0 : adiciona.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((material == null) ? 0 : material.hashCode());
 		result = prime * result + ((proposta == null) ? 0 : proposta.hashCode());
@@ -76,6 +87,11 @@ public class Aula implements Identificavel{
 		if (getClass() != obj.getClass())
 			return false;
 		Aula other = (Aula) obj;
+		if (adiciona == null) {
+			if (other.adiciona != null)
+				return false;
+		} else if (!adiciona.equals(other.adiciona))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -93,11 +109,5 @@ public class Aula implements Identificavel{
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
 
 }
