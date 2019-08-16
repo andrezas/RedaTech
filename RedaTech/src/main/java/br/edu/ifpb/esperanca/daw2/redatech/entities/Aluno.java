@@ -21,7 +21,7 @@ public class Aluno extends Usuario{
 	private Set<Aula> aulas;
     
    
-    @OneToMany(mappedBy="alunos")
+    @OneToMany(mappedBy="autor")
 	private Set<Redacao> redacao;
 
 
@@ -54,13 +54,6 @@ public class Aluno extends Usuario{
 		this.redacao = redacao;
 	}
 
-
-	public Aluno(String serie, Set<Aula> aulas, Set<Redacao> redacao) {
-		super();
-		this.serie = serie;
-		this.aulas = aulas;
-		this.redacao = redacao;
-	}
 
 
 	@Override

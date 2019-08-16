@@ -25,7 +25,7 @@ public class Redacao implements Identificavel{
 	@JoinColumn(name ="id_aluno")
 	private Aluno autor;
 	
-	@OneToMany(mappedBy="id_redacao")
+	@OneToMany(mappedBy="redacao")
 	private Set<NotaCompetencia> notacompetencia;
 	
 	private String redacao;

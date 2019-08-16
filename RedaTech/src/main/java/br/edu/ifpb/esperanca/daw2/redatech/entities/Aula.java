@@ -21,7 +21,7 @@ public class Aula implements Identificavel{
 	private String proposta;
 	
 	@ManyToMany
-	@JoinTable(name="Aula_Material")
+	@JoinTable(name="aula_material")
 	private Set<Material> material;
 	
 	@ManyToOne

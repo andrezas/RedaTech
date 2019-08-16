@@ -21,7 +21,7 @@ public class Comentario implements Identificavel{
 	private Calendar data;
 	private String comentario;
 	
-	@OneToMany(mappedBy="id_comentario")
+	@OneToMany(mappedBy="comentario")
 	private Set<NotaCompetencia> notacompetencia;
 
 	public Long getId() {

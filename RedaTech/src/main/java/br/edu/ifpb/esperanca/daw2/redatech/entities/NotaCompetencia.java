@@ -1,11 +1,12 @@
 package br.edu.ifpb.esperanca.daw2.redatech.entities;
 
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
+@Entity
 public class NotaCompetencia implements Identificavel{
 	@Id
 	private Long id;

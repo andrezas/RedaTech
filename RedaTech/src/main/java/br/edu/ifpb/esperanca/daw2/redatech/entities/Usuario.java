@@ -22,9 +22,6 @@ public class Usuario implements Identificavel{
 	private String nomeUsuário;
 	private String senha;
 	
-	@ManyToOne
-	@JoinColumn(name="id_turma")
-	private Turma turmas;
 	
 	private String instituicao;
 	
@@ -65,12 +62,6 @@ public class Usuario implements Identificavel{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Turma getTurmas() {
-		return turmas;
-	}
-	public void setTurmas(Turma turmas) {
-		this.turmas = turmas;
-	}
 	public String getInstituicao() {
 		return instituicao;
 	}
@@ -79,7 +70,6 @@ public class Usuario implements Identificavel{
 	}
 	public Usuario() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public int hashCode() {
@@ -92,7 +82,6 @@ public class Usuario implements Identificavel{
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((nomeUsuário == null) ? 0 : nomeUsuário.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
-		result = prime * result + ((turmas == null) ? 0 : turmas.hashCode());
 		return result;
 	}
 	@Override
@@ -138,11 +127,6 @@ public class Usuario implements Identificavel{
 			if (other.senha != null)
 				return false;
 		} else if (!senha.equals(other.senha))
-			return false;
-		if (turmas == null) {
-			if (other.turmas != null)
-				return false;
-		} else if (!turmas.equals(other.turmas))
 			return false;
 		return true;
 	}

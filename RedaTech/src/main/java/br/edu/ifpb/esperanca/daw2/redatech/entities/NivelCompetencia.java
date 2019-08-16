@@ -26,7 +26,7 @@ public class NivelCompetencia implements Identificavel {
 	@JoinColumn(name ="id_competencia")
 	private Competencia competencia;
 	
-	@OneToMany(mappedBy="id_nivelCompetencia")
+	@OneToMany(mappedBy="nivelCompetencia")
 	private Set<NotaCompetencia> notacompetencia;
 	
 	private String descricao;

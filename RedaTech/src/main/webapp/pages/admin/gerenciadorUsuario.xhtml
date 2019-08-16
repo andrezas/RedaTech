@@ -4,7 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Gerenciador de Aluno</title>
+	<title>Gerenciador de Usuários</title>
 </h:head>
 
 
@@ -17,30 +17,30 @@
 				<h:outputText value="Filtros" />
 			</f:facet>
 			<f:facet name="header">
-				<h:outputText value="Alunos" />
+				<h:outputText value="Usuário" />
 			</f:facet>
 
 			<p:outputLabel value="Nome: " for="nomeField" />
-			<p:inputText id="nomeField" value="#{alunoBean.entidade.nome}"
+			<p:inputText id="nomeField" value="#{usuarioBean.entidade.nome}"
 				label="Nome" style="width:350px" />
 
 			<p:outputLabel value="E-mail: " for="emailField" />
-			<p:inputText id="emailField" value="#{alunoBean.entidade.email}"
+			<p:inputText id="emailField" value="#{usuarioBean.entidade.email}"
 				label="Nome" style="width:350px" />
 
 			<p:outputLabel value="Nascimento: " for="nascimentoField" />
 			<p:calendar id="nascimentoField"
-				value="#{alunoBean.entidade.nascimento}" label="Nascimento" />
+				value="#{usuarioBean.entidade.nascimento}" label="Nascimento" />
 
 			<p:commandButton id="btnNovo" value="Novo"
-				action="#{alunoBean.save()}" ajax="false" />
+				action="#{usuarioBean.save()}" ajax="false" />
 			<p:commandButton id="btnLimpar" value="Limpar"
-				action="#{alunoBean.limpar()}" ajax="false" />
+				action="#{usuarioBean.limpar()}" ajax="false" />
 		</p:panelGrid>
 
 
 		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
-			value="#{alunoBean.entidades}">
+			value="#{usuarioBean.entidades}">
 			<p:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{entidade.id}" />
@@ -62,9 +62,9 @@
 			<p:column>
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"
-					action="#{alunoBean.remove(entidade)}"></p:commandButton>
+					action="#{usuarioBean.remove(entidade)}"></p:commandButton>
 				<p:commandButton value="Editar" ajax="false"
-					action="#{alunoBean.editar(entidade.id)}"></p:commandButton>
+					action="#{usuarioBean.editar(entidade.id)}"></p:commandButton>
 			</p:column>
 		</p:dataTable>
 	</h:form>

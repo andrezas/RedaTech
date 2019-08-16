@@ -21,10 +21,11 @@ public class Material implements Identificavel{
 	
 	private String titulo;
 	
-	@ManyToMany(mappedBy="Aula_Material")
+	@ManyToMany(mappedBy="material")
 	private Set<Aula> aulas;
 	
 	@ManyToOne
+	@JoinColumn(name ="id_professor")
 	private Professor adiciona2;
 	
 	private String tipo;

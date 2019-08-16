@@ -23,7 +23,7 @@ public class Professor extends Usuario {
 	@OneToMany(mappedBy="adiciona2")
 	private Set<Material> materiais;
 
-	@OneToMany(mappedBy="id_professor")
+	@OneToMany(mappedBy="professor")
 	private Set<NotaCompetencia> notacompetencia;
 	
 	public String getFormacao() {

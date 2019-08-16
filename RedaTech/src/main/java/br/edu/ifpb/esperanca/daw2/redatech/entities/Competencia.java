@@ -19,7 +19,7 @@ public class Competencia implements Identificavel{
 	
 	private String competencia;
 	
-	@OneToMany(mappedBy="id_competencia")
+	@OneToMany(mappedBy="competencia")
 	private Set<NivelCompetencia> nivelcompetencia;
 
 	public Long getId() {
