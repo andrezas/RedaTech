@@ -29,7 +29,7 @@ public class Redacao implements Identificavel{
 	private Set<NotaCompetencia> notacompetencia;
 	
 	private String redacao;
-	private Material material;
+	
 
 	public Long getId() {
 		return id;
@@ -79,14 +79,6 @@ public class Redacao implements Identificavel{
 		this.redacao = redacao;
 	}
 
-	public Material getMaterial() {
-		return material;
-	}
-
-	public void setMaterial(Material material) {
-		this.material = material;
-	}
-
 	public Redacao(Long id, Integer notaFinal, String tema, Aluno autor, Set<NotaCompetencia> notacompetencia,
 			String redacao, Material material) {
 		super();
@@ -96,7 +88,6 @@ public class Redacao implements Identificavel{
 		this.autor = autor;
 		this.notacompetencia = notacompetencia;
 		this.redacao = redacao;
-		this.material = material;
 	}
 
 	@Override
@@ -105,7 +96,6 @@ public class Redacao implements Identificavel{
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((material == null) ? 0 : material.hashCode());
 		result = prime * result + ((notaFinal == null) ? 0 : notaFinal.hashCode());
 		result = prime * result + ((notacompetencia == null) ? 0 : notacompetencia.hashCode());
 		result = prime * result + ((redacao == null) ? 0 : redacao.hashCode());
@@ -131,11 +121,6 @@ public class Redacao implements Identificavel{
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (material == null) {
-			if (other.material != null)
-				return false;
-		} else if (!material.equals(other.material))
 			return false;
 		if (notaFinal == null) {
 			if (other.notaFinal != null)
