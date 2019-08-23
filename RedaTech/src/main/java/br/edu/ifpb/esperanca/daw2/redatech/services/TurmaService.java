@@ -2,7 +2,10 @@ package br.edu.ifpb.esperanca.daw2.redatech.services;
 
 import java.io.Serializable;
 import java.util.List;
+
 import javax.inject.Inject;
+
+import br.edu.ifpb.esperanca.daw2.redatech.dao.TurmaDAO;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Turma;
 import br.edu.ifpb.esperanca.daw2.redatech.util.TransacionalCdi;
 
@@ -13,7 +16,7 @@ public class TurmaService implements Serializable, Service<Turma> {
 	private static final long serialVersionUID = -7803325791425670859L;
 	
 	@Inject
-	private TurmaService turmaDAO;
+	private TurmaDAO turmaDAO;
 	
 	/* (non-Javadoc)
 	 * @see br.edu.ifpb.esperanca.daw2.services
