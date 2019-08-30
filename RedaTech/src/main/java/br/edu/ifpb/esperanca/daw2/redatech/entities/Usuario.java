@@ -68,9 +68,7 @@ public class Usuario implements Identificavel{
 	public void setInstituicao(String instituicao) {
 		this.instituicao = instituicao;
 	}
-	public Usuario() {
-		super();
-	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

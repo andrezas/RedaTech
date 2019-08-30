@@ -67,16 +67,6 @@ public class NotaCompetencia implements Identificavel{
 		this.comentario = comentario;
 	}
 
-	public NotaCompetencia(Long id, NivelCompetencia nivelCompetencia, Professor professor, Redacao redacao,
-			Comentario comentario) {
-		super();
-		this.id = id;
-		this.nivelCompetencia = nivelCompetencia;
-		this.professor = professor;
-		this.redacao = redacao;
-		this.comentario = comentario;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

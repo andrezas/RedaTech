@@ -58,14 +58,6 @@ public class Turma implements Identificavel{
 		this.professor = professor;
 	}
 
-	public Turma(Long id, String nome, Set<Aluno> alunos, Professor professor) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.alunos = alunos;
-		this.professor = professor;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

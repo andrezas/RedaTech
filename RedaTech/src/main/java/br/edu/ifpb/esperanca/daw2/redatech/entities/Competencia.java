@@ -46,13 +46,7 @@ public class Competencia implements Identificavel{
 		this.nivelcompetencia = nivelcompetencia;
 	}
 
-	public Competencia(Long id, String competencia, Set<NivelCompetencia> nivelcompetencia) {
-		super();
-		this.id = id;
-		this.competencia = competencia;
-		this.nivelcompetencia = nivelcompetencia;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

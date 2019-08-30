@@ -79,17 +79,6 @@ public class Redacao implements Identificavel{
 		this.redacao = redacao;
 	}
 
-	public Redacao(Long id, Integer notaFinal, String tema, Aluno autor, Set<NotaCompetencia> notacompetencia,
-			String redacao, Material material) {
-		super();
-		this.id = id;
-		this.notaFinal = notaFinal;
-		this.tema = tema;
-		this.autor = autor;
-		this.notacompetencia = notacompetencia;
-		this.redacao = redacao;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -82,20 +82,6 @@ public class Material implements Identificavel{
 		this.arquivo = arquivo;
 	}
 	
-	public Material(Long id, String titulo, Set<Aula> aulas, Professor adiciona2, String tipo, String descricao,
-			URL link, File arquivo) {
-		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.aulas = aulas;
-		this.adiciona2 = adiciona2;
-		this.tipo = tipo;
-		this.descricao = descricao;
-		this.link = link;
-		this.arquivo = arquivo;
-	}
-	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

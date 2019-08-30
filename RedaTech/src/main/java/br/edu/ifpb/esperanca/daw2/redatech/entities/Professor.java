@@ -65,17 +65,7 @@ public class Professor extends Usuario {
 	public void setNotacompetencia(Set<NotaCompetencia> notacompetencia) {
 		this.notacompetencia = notacompetencia;
 	}
-
-	public Professor(String formacao, Set<Turma> turmas, Set<Aula> aulas, Set<Material> materiais,
-			Set<NotaCompetencia> notacompetencia) {
-		super();
-		this.formacao = formacao;
-		this.turmas = turmas;
-		this.aulas = aulas;
-		this.materiais = materiais;
-		this.notacompetencia = notacompetencia;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -79,16 +79,6 @@ public class NivelCompetencia implements Identificavel {
 		this.descricao = descricao;
 	}
 
-	public NivelCompetencia(Long id, Integer nivel, Integer pontos, Competencia competencia,
-			Set<NotaCompetencia> notacompetencia, String descricao) {
-		super();
-		this.id = id;
-		this.nivel = nivel;
-		this.pontos = pontos;
-		this.competencia = competencia;
-		this.notacompetencia = notacompetencia;
-		this.descricao = descricao;
-	}
 
 	@Override
 	public int hashCode() {

@@ -59,13 +59,6 @@ public class Aula implements Identificavel{
 		this.adiciona = adiciona;
 	}
 
-	public Aula(Long id, String proposta, Set<Material> material, Professor adiciona) {
-		super();
-		this.id = id;
-		this.proposta = proposta;
-		this.material = material;
-		this.adiciona = adiciona;
-	}
 
 	@Override
 	public int hashCode() {

@@ -56,12 +56,9 @@ public class Comentario implements Identificavel{
 		this.notacompetencia = notacompetencia;
 	}
 
-	public Comentario(Long id, Calendar data, String comentario, Set<NotaCompetencia> notacompetencia) {
+	public Comentario() {
 		super();
-		this.id = id;
-		this.data = data;
-		this.comentario = comentario;
-		this.notacompetencia = notacompetencia;
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
