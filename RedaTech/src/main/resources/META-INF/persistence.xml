@@ -22,7 +22,7 @@
 		
 		<properties>
 			<!--  Propriedades da conexão com o Banco de Dados -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.4.170:5432/redatech" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.4.170:5432/RedaTech" />
 			<property name="javax.persistence.jdbc.user" value="redatech" />
 			<property name="javax.persistence.jdbc.password" value="falsiane123" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
@@ -33,7 +33,7 @@
 			<property name="hibernate.format_sql" value="true" />
 
 			<!-- Cria/Atualiza o esquema relacional no SGBD -->
-			<!--  <property name="hibernate.hbm2ddl.auto" value="update" /> -->
+			<property name="hibernate.hbm2ddl.auto" value="create" /> 
 		</properties>
 
 	</persistence-unit>
