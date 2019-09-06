@@ -16,7 +16,7 @@
 	 		 	<h:form id="form-cadastro">	 	
  
 	 		 	<h:panelGrid id="panelGrid-campos-form" columns="2" cellpadding="10">
- 
+
 	            		<p:outputLabel value="E-mail" for="inputText-email"/>
 	            		<p:inputText id="inputText-email" 
 	            			     style="width:300px" 
@@ -24,7 +24,7 @@
 	            			     value="#{cadastrarPessoaController.pessoaModel.email}"
 	            			     required="true"
 	            			     requiredMessage="O email é de preenchimento obrigatório"/>
-       
+	            		           
 	            		<p:outputLabel value="Senha" for="inputText-senha"/>
 	            		<p:password id="inputText-senha" 
 	            			     style="width:400px" 
@@ -35,7 +35,7 @@
  
 	            		<p:spacer/>
  
-	            		<p:commandButton value="Sing in" 
+	            		<p:commandButton value="Logar" 
 	            				 id="commandButton-salvar"
 						 icon="ui-icon-gear"
 						 actionListener="#{cadastrarPessoaController.SalvarNovaPessoa}"
