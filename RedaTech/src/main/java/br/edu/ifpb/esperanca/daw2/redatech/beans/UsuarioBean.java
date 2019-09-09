@@ -34,6 +34,8 @@ public class UsuarioBean implements Serializable {
 		getService().remove(entidade);
 		limpar();
 	}
+	
+
 
 	public Usuario getEntidade() {
 		return entidade;

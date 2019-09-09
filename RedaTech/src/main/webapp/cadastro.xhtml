@@ -21,7 +21,7 @@
 	            		<p:inputText id="inputText-email" 
 	            			     style="width:300px" 
 	            			     maxlength="80" 
-	            			     value="#{cadastrarPessoaController.pessoaModel.email}"
+	            			     value="#{usuarioBean.entidade.email}"
 	            			     required="true"
 	            			     requiredMessage="O email é de preenchimento obrigatório"/>
        
@@ -29,16 +29,21 @@
 	            		<p:password id="inputText-senha" 
 	            			     style="width:400px" 
 	            			     maxlength="200" 
-	            			     value="#{cadastrarPessoaController.pessoaModel.senha}"
+	            			     value="#{usuarioBean.entidade.senha}"
 	            			     required="true"
 	            		             requiredMessage="A senha de usuário é de preenchimento obrigatório"/>
  
 	            		<p:spacer/>
  
-	            		<p:commandButton value="Sing in" 
+	            		<p:commandButton value="Sign in" 
+	            				 id="commandButton-aut"
+						 icon="ui-icon-gear"
+						 actionListener="#{usuarioBean.autentica()}"
+						 update="panelGrid-campos-form"/>
+						 <p:commandButton value="Sign up" 
 	            				 id="commandButton-salvar"
 						 icon="ui-icon-gear"
-						 actionListener="#{cadastrarPessoaController.SalvarNovaPessoa}"
+						 actionListener="#{usuarioBean.save()}"
 						 update="panelGrid-campos-form"/>
  
  
