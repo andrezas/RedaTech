@@ -3,16 +3,17 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
+<h:head >
 	<title>Menu</title>
 </h:head>
 
-<h:body>
-<p:breadCrumb>
-    <p:menuitem value="Home" url="#" />
-    <p:menuitem value="Material" url="#" />
-    <p:menuitem value="Vídeos" url="#" />
-    <p:menuitem value="Redação" url="http://localhost:8888/red/redacao.xhtml" />
-</p:breadCrumb>
+<h:body>	
+	<p:dock position="bottom"  >
+    <p:menuitem value="Cadastro" icon="" url="http://localhost:8888/red/cadastro.xhtml"/>
+    <p:menuitem value="Material" icon="file:///C:/Users/Aluno/git/RedaTech15/RedaTech/src/main/resources/fotos/Material.png" url="http://localhost:8888/red/material.xhtml"/>
+    <p:menuitem value="Videos " icon="file:///C:/Users/Aluno/git/RedaTech15/RedaTech/src/main/resources/fotos/Video.png" url="http://localhost:8888/red/videos.xhtml"/>
+    <p:menuitem value="Redacao" icon=" file:///C:/Users/Aluno/git/RedaTech15/RedaTech/src/main/resources/fotos/Redacao.png" url="http://localhost:8888/red/redacao.xhtml"/>
+    </p:dock>
+    
 </h:body>
 </html>
