@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Cadastro</title>
+	
+</h:head>
+<ui:include src="menu.xhtml" />
+<h:body>
+	
+ 
+		   <p:tabView style="width:800px;height:370px;margin:auto;">
+	 		 	<p:tab title="Cadastro de Usuário">
+ 
+	 		 	<h:form id="form-cadastro">	 	
+ 
+	 		 	<h:panelGrid id="panelGrid-campos-form" columns="2" cellpadding="10">
+ 
+	            		<p:outputLabel value="Nome" for="inputText-nome"/>
+	            		<p:inputText id="inputText-nome" 
+	            			     style="width:300px" 
+	            			     maxlength="80" 
+	            			     value="#{usuarioBean.entidade.nome}"
+	            			     required="true"
+	            			     requiredMessage="O nome é de preenchimento obrigatório"/>
+	            			     
+	            		<p:outputLabel value="Nascimento" for="inputText-nascimento"/>
+	            		<p:inputText id="inputText-nascimento" 
+	            			     style="width:300px" 
+	            			     maxlength="80" 
+	            			     value="#{usuarioBean.entidade.nascimento}"
+	            			     required="true"
+	            			     requiredMessage="O nascimento é de preenchimento obrigatório"/>
+	            			   
+	            		<p:outputLabel value="Email" for="inputText-email"/>
+	            		<p:inputText id="inputText-email" 
+	            			     style="width:300px" 
+	            			     maxlength="80" 
+	            			     value="#{usuarioBean.entidade.email}"
+	            			     required="true"
+	            			     requiredMessage="O email é de preenchimento obrigatório"/>
+	            			     
+	            		<p:outputLabel value="Senha" for="inputText-senha"/>
+	            		<p:password id="inputText-senha" 
+	            			     style="width:400px" 
+	            			     maxlength="200" 
+	            			     value="#{usuarioBean.entidade.senha}"
+	            			     required="true"
+	            		             requiredMessage="A senha de usuário é de preenchimento obrigatório"/>
+	            		
+						 
+						 <p:commandButton value="Cadastrar"  
+	            				 id="commandButton-salvar" 
+						 icon="ui-icon-gear"
+						 actionListener="#{usuarioBean.save()}"
+						 update="panelGrid-campos-form"/>
+	 		 	</h:panelGrid>
+ 
+	 		 		<p:messages showDetail="true" autoUpdate="true" closable="true" severity="warn"/>
+	 		 		<p:messages autoUpdate="true" closable="true" severity="error"/>		
+		   			<p:messages showDetail="true" autoUpdate="true" closable="true" severity="info"/>
+ 
+	 		 		</h:form>
+ 
+	 			 </p:tab>		 		
+ 
+	 		</p:tabView>
+ 
+
+</h:body>
+</html>

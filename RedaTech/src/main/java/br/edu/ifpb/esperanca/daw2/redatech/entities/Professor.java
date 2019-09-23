@@ -2,8 +2,6 @@ package br.edu.ifpb.esperanca.daw2.redatech.entities;
 
 
 import java.util.Set;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -11,8 +9,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Professor")
 public class Professor extends Usuario {
-	
-	private String formacao;
 	
 	@OneToMany(mappedBy="professor")
 	private Set<Turma> turmas;
@@ -25,14 +21,6 @@ public class Professor extends Usuario {
 
 	@OneToMany(mappedBy="professor")
 	private Set<NotaCompetencia> notacompetencia;
-	
-	public String getFormacao() {
-		return formacao;
-	}
-
-	public void setFormacao(String formacao) {
-		this.formacao = formacao;
-	}
 
 	public Set<Turma> getTurmas() {
 		return turmas;
@@ -71,7 +59,6 @@ public class Professor extends Usuario {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((aulas == null) ? 0 : aulas.hashCode());
-		result = prime * result + ((formacao == null) ? 0 : formacao.hashCode());
 		result = prime * result + ((materiais == null) ? 0 : materiais.hashCode());
 		result = prime * result + ((notacompetencia == null) ? 0 : notacompetencia.hashCode());
 		result = prime * result + ((turmas == null) ? 0 : turmas.hashCode());
@@ -91,11 +78,6 @@ public class Professor extends Usuario {
 			if (other.aulas != null)
 				return false;
 		} else if (!aulas.equals(other.aulas))
-			return false;
-		if (formacao == null) {
-			if (other.formacao != null)
-				return false;
-		} else if (!formacao.equals(other.formacao))
 			return false;
 		if (materiais == null) {
 			if (other.materiais != null)

@@ -5,8 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +19,7 @@ public class Usuario implements Identificavel{
 	
 	private String nome;
 	private Calendar nascimento;
-	private String nomeUsuário;
+	private String nomeUsuario;
 	private String senha;
 	
 	
@@ -52,11 +50,11 @@ public class Usuario implements Identificavel{
 		this.nascimento = nascimento;
 	}
 
-	public String getNomeUsuário() {
-		return nomeUsuário;
+	public String getNomeUsuario() {
+		return nomeUsuario;
 	}
-	public void setNomeUsuário(String nomeUsuário) {
-		this.nomeUsuário = nomeUsuário;
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 	public String getSenha() {
 		return senha;
@@ -80,7 +78,7 @@ public class Usuario implements Identificavel{
 		result = prime * result + ((instituicao == null) ? 0 : instituicao.hashCode());
 		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((nomeUsuário == null) ? 0 : nomeUsuário.hashCode());
+		result = prime * result + ((nomeUsuario == null) ? 0 : nomeUsuario.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		return result;
 	}
@@ -118,10 +116,10 @@ public class Usuario implements Identificavel{
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (nomeUsuário == null) {
-			if (other.nomeUsuário != null)
+		if (nomeUsuario == null) {
+			if (other.nomeUsuario != null)
 				return false;
-		} else if (!nomeUsuário.equals(other.nomeUsuário))
+		} else if (!nomeUsuario.equals(other.nomeUsuario))
 			return false;
 		if (senha == null) {
 			if (other.senha != null)
