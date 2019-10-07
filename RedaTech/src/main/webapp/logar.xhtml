@@ -6,52 +6,35 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>Logar</title>
-	
+
 </h:head>
 <ui:include src="menu.xhtml" />
 <h:body>
-	
- 
-		   <p:tabView style="width:800px;height:370px;margin:auto;">
-	 		 	<p:tab title="Login">
- 
-	 		 	<h:form id="form-cadastro">	 	
- 
-	 		 	<h:panelGrid id="panelGrid-campos-form" columns="2" cellpadding="10">
- 
-	            		<p:outputLabel value="Email" for="inputText-email"/>
-	            		<p:inputText id="inputText-email" 
-	            			     style="width:300px" 
-	            			     maxlength="80" 
-	            			     value="#{usuarioBean.entidade.email}"/>
-       
-	            		<p:outputLabel value="Senha" for="inputText-senha"/>
-	            		<p:password id="inputText-senha" 
-	            			     style="width:400px" 
-	            			     maxlength="200" 
-	            			     value="#{usuarioBean.entidade.senha}"/>
-	            		
-	            		<p:commandButton value="Logar" 
-	            				 id="commandButton-aut"
-						 icon="ui-icon-gear"
-						 actionListener="#{usuarioBean.autentica()}"
-						 update="panelGrid-campos-form"/>
-						 
-						 <p:button href="http://localhost:8888/red/cadastrar.xhtml" value="Cadastrar" />
-						 
-						
-	 		 	</h:panelGrid>
-	 
-	 		 		<p:messages showDetail="true" autoUpdate="true" closable="true" severity="warn"/>
-	 		 		<p:messages autoUpdate="true" closable="true" severity="error"/>		
-		   			<p:messages showDetail="true" autoUpdate="true" closable="true" severity="info"/>
- 
-	 		 		</h:form>
- 
-	 			 </p:tab>		 		
- 
-	 		</p:tabView>
- 
+
+
+	<p:tabView style="width:800px;height:370px;margin:auto;">
+		<p:tab title="Login">
+
+			<h:form id="formLogin" prependId="false"
+				onsubmit="action='j_security_check';">
+
+				<h:panelGrid columns="2" style="text-align:center; margin: auto;">
+					<h:outputLabel for="j_username" value="Login:" />
+					<h:inputText id="j_username" />
+
+					<h:outputLabel for="j_password" value="Senha:" />
+					<h:inputSecret id="j_password" />
+					<p:commandButton id="btnLogin" value="Login" ajax="false"
+						icon="fa fa-sign-in" />
+					<p:button   outcome="cadastrar"
+						value="Cadastrar" />
+				</h:panelGrid>
+			</h:form>
+
+		</p:tab>
+
+	</p:tabView>
+
 
 </h:body>
 </html>

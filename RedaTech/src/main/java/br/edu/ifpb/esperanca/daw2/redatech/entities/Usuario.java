@@ -21,8 +21,15 @@ public class Usuario implements Identificavel{
 	private Calendar nascimento;
 	private String nomeUsuario;
 	private String senha;
+	private String grupo;
 	
 	
+	public String getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
 	private String instituicao;
 	
 	public Long getId() {

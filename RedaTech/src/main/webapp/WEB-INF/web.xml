@@ -17,4 +17,52 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>redmond</param-value>
 	</context-param>
+	<welcome-file-list>
+		<welcome-file>/pages/private/gerenciadorUsuario.xhtml</welcome-file>
+	</welcome-file-list>
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>redatechJdbcRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/logar.xhtml</form-login-page>
+			<form-error-page>/logar.xhtml?error=true</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Área protegida</web-resource-name>
+			<description />
+			<url-pattern>/pages/aluno/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description />
+			<role-name>ALUNO</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Área protegida</web-resource-name>
+			<description />
+			<url-pattern>/pages/professor/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description />
+			<role-name>ALUNO</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>PROFESSOR</role-name>
+	</security-role>
+	<security-role>
+		<role-name>ALUNO</role-name>
+	</security-role>
 </web-app>

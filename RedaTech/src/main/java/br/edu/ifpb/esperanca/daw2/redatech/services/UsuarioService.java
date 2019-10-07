@@ -1,6 +1,8 @@
 package br.edu.ifpb.esperanca.daw2.redatech.services;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.util.Base64;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -25,7 +27,21 @@ public class UsuarioService implements Serializable, Service<Usuario> {
 	@Override
 	@TransacionalCdi
 	public void save(Usuario user) {
+		user.setSenha(hash(user.getSenha()));
 		usuarioDAO.save(user);
+	}
+	
+	private String hash(String password) {
+		try {
+			MessageDigest md;
+			md = MessageDigest.getInstance("SHA-256");
+			md.update(password.getBytes("UTF-8"));
+			byte[] digest = md.digest();
+			String output = Base64.getEncoder().encodeToString(digest);
+			return output;
+		} catch (Exception e) {
+			return password;
+		}
 	}
 
 	/* (non-Javadoc)

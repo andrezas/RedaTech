@@ -6,6 +6,9 @@
 
 
 	<persistence-unit name="redatech" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<non-jta-data-source>java:/Redatech</non-jta-data-source>
 	
 		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno</class>
 		<class>br.edu.ifpb.esperanca.daw2.redatech.entities.Aula</class>
@@ -22,9 +25,6 @@
 		
 		<properties>
 			<!--  Propriedades da conexão com o Banco de Dados -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.4.170:5432/RedaTech" />
-			<property name="javax.persistence.jdbc.user" value="redatech" />
-			<property name="javax.persistence.jdbc.password" value="falsiane123" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
 			<!-- Propriedades específicas do Hibernate -->
