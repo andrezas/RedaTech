@@ -26,13 +26,11 @@
 	            			     required="true"
 	            			     requiredMessage="O nome é de preenchimento obrigatório"/>
 	            			     
-	            		<p:outputLabel value="Nascimento" for="inputText-nascimento"/>
-	            		<p:inputText id="inputText-nascimento" 
-	            			     style="width:300px" 
-	            			     maxlength="80" 
-	            			     value="#{usuarioBean.entidade.nascimento}"
-	            			     required="true"
-	            			     requiredMessage="O nascimento é de preenchimento obrigatório"/>
+	  
+	            		<p:outputLabel for="button" value="Nascimento:" />
+        				<p:calendar id="button" value="#{usuarioBean.entidade.nascimento}" showOn="button" />
+	            		
+	            		
 	            			   
 	            		<p:outputLabel value="Email" for="inputText-email"/>
 	            		<p:inputText id="inputText-email" 
