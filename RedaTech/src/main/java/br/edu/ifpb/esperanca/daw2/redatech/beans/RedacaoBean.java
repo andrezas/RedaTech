@@ -3,6 +3,7 @@ package br.edu.ifpb.esperanca.daw2.redatech.beans;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -25,20 +26,20 @@ public class RedacaoBean implements Serializable {
 	protected Redacao entidade;
 
 	protected Collection<Redacao> entidades;
-	
+
 	private UploadedFile file;
-	 
-    public UploadedFile getFile() {
-        return file;
-    }
- 
-    public void setFile(UploadedFile file) {
-        this.file = file;
-    }
+
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
+	}
 
 	public RedacaoBean() {
 	}
-	
+
 	@PostConstruct
 	public void init() {
 		entidade = newEntidade();
@@ -67,16 +68,16 @@ public class RedacaoBean implements Serializable {
 	}
 
 	public void save() {
-		File f = new File("c:/Users/Aluno/"+file.getFileName());
-		try {
-			FileOutputStream fos = new FileOutputStream(f);
-			int b;
-			while((b =file.getInputstream().read()) >= 0) {
+		if (file != null) {
+			File f = new File("c:/Users/Aluno/" + file.getFileName());
+			try {
+				FileOutputStream fos = new FileOutputStream(f);
+				byte[] b = file.getContents();
 				fos.write(b);
+				fos.close();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			fos.close();
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		getService().save(entidade);
 		limpar();
