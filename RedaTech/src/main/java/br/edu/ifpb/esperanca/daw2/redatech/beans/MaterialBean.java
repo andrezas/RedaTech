@@ -8,6 +8,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.model.UploadedFile;
+
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Material;
 import br.edu.ifpb.esperanca.daw2.redatech.services.MaterialService;
 
@@ -20,6 +22,8 @@ public class MaterialBean implements Serializable {
 	protected Material entidade;
 
 	protected Collection<Material> entidades;
+	
+	private UploadedFile file;
 
 	public MaterialBean() {
 	}
