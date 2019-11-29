@@ -1,12 +1,15 @@
 package br.edu.ifpb.esperanca.daw2.redatech.entities;
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Entity
 @Table(name = "Usuario")
 public class Usuario implements Identificavel{
@@ -18,8 +21,8 @@ public class Usuario implements Identificavel{
 	private String email;
 	
 	private String nome;
-	private Calendar nascimento;
-	private String nomeUsuario;
+	private Date nascimento;
+	private String Username;
 	private String senha;
 	private String grupo;
 	
@@ -50,18 +53,18 @@ public class Usuario implements Identificavel{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Calendar getNascimento() {
+	public Date getNascimento() {
 		return nascimento;
 	}
-	public void setNascimento(Calendar nascimento) {
+	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
 
-	public String getNomeUsuario() {
-		return nomeUsuario;
+	public String getUsername() {
+		return Username;
 	}
-	public void setNomeUsuario(String nomeUsuario) {
-		this.nomeUsuario = nomeUsuario;
+	public void setUsername(String Username) {
+		this.Username = Username;
 	}
 	public String getSenha() {
 		return senha;
@@ -85,7 +88,7 @@ public class Usuario implements Identificavel{
 		result = prime * result + ((instituicao == null) ? 0 : instituicao.hashCode());
 		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((nomeUsuario == null) ? 0 : nomeUsuario.hashCode());
+		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		return result;
 	}
@@ -123,10 +126,10 @@ public class Usuario implements Identificavel{
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (nomeUsuario == null) {
-			if (other.nomeUsuario != null)
+		if (Username == null) {
+			if (other.Username != null)
 				return false;
-		} else if (!nomeUsuario.equals(other.nomeUsuario))
+		} else if (!Username.equals(other.Username))
 			return false;
 		if (senha == null) {
 			if (other.senha != null)

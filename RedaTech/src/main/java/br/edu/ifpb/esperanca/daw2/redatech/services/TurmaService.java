@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.edu.ifpb.esperanca.daw2.redatech.dao.TurmaDAO;
+import br.edu.ifpb.esperanca.daw2.redatech.entities.Aluno;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Turma;
 import br.edu.ifpb.esperanca.daw2.redatech.util.TransacionalCdi;
 
@@ -60,6 +61,10 @@ public class TurmaService implements Serializable, Service<Turma> {
 	@Override
 	public List<Turma> getAll() {
 			return turmaDAO.getAll();
+	}
+	
+	public List<Turma> turmasDoAluno(Aluno aluno){
+		return turmaDAO.turmasDoAluno(aluno);
 	}
 
 }

@@ -3,6 +3,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.Set;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,8 +35,15 @@ public class Material implements Identificavel{
 	private String tipo;
 	private String  descricao;
 	private URL link;
-	private File arquivo;
+	private String arquivo;
+	private UploadedFiles arquivos;
 	
+	public UploadedFiles getarquivos() {
+		return arquivos;
+	}
+	public void setarquivos(UploadedFiles arquivos) {
+		this.arquivos = arquivos;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -77,10 +86,10 @@ public class Material implements Identificavel{
 	public void setLink(URL link) {
 		this.link = link;
 	}
-	public File getArquivo() {
+	public String getArquivo() {
 		return arquivo;
 	}
-	public void setArquivo(File arquivo) {
+	public void setArquivo(String arquivo) {
 		this.arquivo = arquivo;
 	}
 	
@@ -150,4 +159,12 @@ public class Material implements Identificavel{
 		return true;
 	}
 	
+	public void uploadMultiple() {
+        if (arquivos != null) {
+            for (UploadedFiles f : arquivos.getarquivos()) {
+                FacesMessage message = new FacesMessage("O arquivo", f.getFileTitulo() + " foi carregado com sucesso!");
+                FacesContext.getCurrentInstance().addMessage(null, message);
+            }
+        }
+    }
 }

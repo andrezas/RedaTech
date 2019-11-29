@@ -9,6 +9,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Usuario;
+import br.edu.ifpb.esperanca.daw2.redatech.services.AlunoService;
+import br.edu.ifpb.esperanca.daw2.redatech.services.ProfessorService;
 import br.edu.ifpb.esperanca.daw2.redatech.services.UsuarioService;
 
 @ViewScoped
@@ -16,6 +18,8 @@ import br.edu.ifpb.esperanca.daw2.redatech.services.UsuarioService;
 public class UsuarioBean implements Serializable {
 	@Inject
 	private UsuarioService service;
+	private ProfessorService serviceProfessor;
+	private AlunoService serviceAluno;
 
 	protected Usuario entidade;
 
@@ -34,8 +38,6 @@ public class UsuarioBean implements Serializable {
 		getService().remove(entidade);
 		limpar();
 	}
-	
-
 
 	public Usuario getEntidade() {
 		return entidade;
@@ -75,4 +77,5 @@ public class UsuarioBean implements Serializable {
 	public UsuarioService getService() {
 		return service;
 	}
+	
 }

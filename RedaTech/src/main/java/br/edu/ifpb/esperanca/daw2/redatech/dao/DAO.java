@@ -14,7 +14,7 @@ import br.edu.ifpb.esperanca.daw2.redatech.entities.Identificavel;
 public abstract class DAO<E extends Identificavel> {
 
 	@Inject
-	private EntityManager em;
+	protected EntityManager em;
 
 	private Class<E> classe;
 
