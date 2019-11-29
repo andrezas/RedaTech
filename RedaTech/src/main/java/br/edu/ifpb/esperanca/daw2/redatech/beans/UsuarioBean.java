@@ -1,19 +1,26 @@
 package br.edu.ifpb.esperanca.daw2.redatech.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.security.Principal;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Usuario;
 import br.edu.ifpb.esperanca.daw2.redatech.services.AlunoService;
 import br.edu.ifpb.esperanca.daw2.redatech.services.ProfessorService;
 import br.edu.ifpb.esperanca.daw2.redatech.services.UsuarioService;
 
-@ViewScoped
+@SessionScoped
 @Named
 public class UsuarioBean implements Serializable {
 	@Inject
@@ -78,4 +85,29 @@ public class UsuarioBean implements Serializable {
 		return service;
 	}
 	
+	public String pegarUsuario() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		Principal userPrincipal = externalContext.getUserPrincipal();
+		if (userPrincipal == null) {
+			return "";
+		}
+		return userPrincipal.getName();
+	}
+	
+	public void desconectar() throws IOException, ServletException {
+		FacesContext fc = FacesContext.getCurrentInstance();
+		ExternalContext ec = fc.getExternalContext();
+		HttpSession session = (HttpSession) ec.getSession(false);
+		session.invalidate();
+		HttpServletRequest request = (HttpServletRequest) ec.getRequest();
+		request.logout();
+		ec.redirect(ec.getApplicationContextPath());
+	}
+	
+	public boolean usuarioLogado(String role) {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		return externalContext.isUserInRole(role);
+	}
 }

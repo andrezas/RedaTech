@@ -5,12 +5,12 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-	<title>Material</title>
+	<title>Home</title>
+	
 </h:head>
-
-
-<h:body>
-<script type="text/javascript">
+<body>
+<ui:include src="menu.xhtml" />
+	<script type="text/javascript">
     //<![CDATA[
 function start() {
     PF('statusDialog').show();
@@ -31,6 +31,5 @@ function stop() {
         <p:fileDownload value="#{fileDownloadView.file}" />
     </p:commandButton>      
 </h:form>
-<ui:include src="menu.xhtml" />
-</h:body>
+</body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Redações</title>
+
+</h:head>
+<body style="background-image: url(./fotos/l.png);">
+	<h:form id="formMenu">
+		<p:menubar>
+			<f:facet name="options">
+						Olá, #{usuarioBean.pegarUsuario()}
+						<p:commandButton id="menuItemLogout" value="Logout"
+					icon="fa fa-fw fa-sign-out" action="#{usuarioBean.desconectar()}"
+					ajax="false" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+	<h:form id="form">
+		<p:growl id="msgs" showDetail="true" />
+
+		<p:dataTable id="basicDT" var="redacao"
+			value="#{redacaoBean.entidades}">
+			<f:facet name="header">
+            Basic
+        </f:facet>
+			<p:column headerText="Id">
+				<h:outputText value="#{redacao.id}" />
+			</p:column>
+			<p:column headerText="Nota">
+				<h:outputText value="#{redacao.notaFinal}" />
+			</p:column>
+			<p:column headerText="Tema">
+				<h:outputText value="#{readaco.tema}" />
+			</p:column>
+			<p:column headerText="Data">
+				<h:outputText value="#{redacao.data}" />
+			</p:column>
+			<p:column style="width:32px;text-align: center">
+				<p:commandButton 
+					oncomplete="PF('redDialog').show()" update=":form:redDetail" icon="fa fa-file-text"
+					title="View">
+					<f:setPropertyActionListener value="#{redacao}"
+						target="#{redacaoBean.entidade}" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	
+	<p:dialog header="Redacao" widgetVar="redDialog" modal="true"
+		showEffect="fade" hideEffect="fade" resizable="true" >
+		<p:outputPanel id="redDetail" style="text-align:center;" >
+			<p:panelGrid columns="2" rendered="#{not empty redacaoBean.entidade}">
+				<h:outputText escape="false" value="#{redacaoBean.entidade.redacao}" />
+			</p:panelGrid>
+		</p:outputPanel>
+	</p:dialog>
+	</h:form>
+	<ui:include src="./menu.xhtml" />
+</body>
+</html>

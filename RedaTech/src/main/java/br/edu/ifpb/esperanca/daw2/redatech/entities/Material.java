@@ -1,18 +1,14 @@
 package br.edu.ifpb.esperanca.daw2.redatech.entities;
-import java.io.File;
+
 import java.net.URL;
 import java.util.Set;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,14 +32,7 @@ public class Material implements Identificavel{
 	private String  descricao;
 	private URL link;
 	private String arquivo;
-	private UploadedFiles arquivos;
-	
-	public UploadedFiles getarquivos() {
-		return arquivos;
-	}
-	public void setarquivos(UploadedFiles arquivos) {
-		this.arquivos = arquivos;
-	}
+
 	public Long getId() {
 		return id;
 	}
@@ -159,12 +148,5 @@ public class Material implements Identificavel{
 		return true;
 	}
 	
-	public void uploadMultiple() {
-        if (arquivos != null) {
-            for (UploadedFiles f : arquivos.getarquivos()) {
-                FacesMessage message = new FacesMessage("O arquivo", f.getFileTitulo() + " foi carregado com sucesso!");
-                FacesContext.getCurrentInstance().addMessage(null, message);
-            }
-        }
-    }
+	
 }

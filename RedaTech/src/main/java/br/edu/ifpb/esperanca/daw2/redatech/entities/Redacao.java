@@ -1,4 +1,5 @@
 package br.edu.ifpb.esperanca.daw2.redatech.entities;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ public class Redacao implements Identificavel{
 	 
 	private Integer notaFinal;
 	private String tema;
+	private Date data;
 	
 	@ManyToOne
 	@JoinColumn(name ="id_aluno")
@@ -29,6 +31,14 @@ public class Redacao implements Identificavel{
 	
 	private String redacao;
 	
+	
+	public Date getData() {
+		return data;
+	}
+	
+	public void setData(Date data) {
+		this.data = data;
+	}
 
 	public Long getId() {
 		return id;

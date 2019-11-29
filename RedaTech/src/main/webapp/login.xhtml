@@ -8,8 +8,18 @@
 	<title>Logar</title>
 
 </h:head>
-<body style="background-image:url(./fotos/l.png);">
+<body style="background-image: url(./fotos/l.png);">
 
+	<h:form id="formMenu">
+		<p:menubar>
+			<f:facet name="options">
+						Olá, #{usuarioBean.pegarUsuario()}
+						<p:commandButton id="menuItemLogout" value="Logout"
+					icon="fa fa-fw fa-sign-out" action="#{usuarioBean.desconectar()}"
+					ajax="false" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
 
 	<p:tabView style="width:800px;height:370px;margin:auto;">
 		<p:tab title="Login">
@@ -25,8 +35,7 @@
 					<h:inputSecret id="j_password" />
 					<p:commandButton id="btnLogin" value="Login" ajax="false"
 						icon="fa fa-sign-in" />
-					<p:button   outcome="cadastro.xhtml"
-						value="Cadastrar" />
+					<p:button outcome="cadastro.xhtml" value="Cadastrar" />
 				</h:panelGrid>
 			</h:form>
 

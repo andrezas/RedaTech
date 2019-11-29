@@ -22,7 +22,7 @@ public class Usuario implements Identificavel{
 	
 	private String nome;
 	private Date nascimento;
-	private String Username;
+	private String username;
 	private String senha;
 	private String grupo;
 	
@@ -61,10 +61,10 @@ public class Usuario implements Identificavel{
 	}
 
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String Username) {
-		this.Username = Username;
+		this.username = Username;
 	}
 	public String getSenha() {
 		return senha;
@@ -88,7 +88,7 @@ public class Usuario implements Identificavel{
 		result = prime * result + ((instituicao == null) ? 0 : instituicao.hashCode());
 		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((Username == null) ? 0 : Username.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		return result;
 	}
@@ -126,10 +126,10 @@ public class Usuario implements Identificavel{
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (Username == null) {
-			if (other.Username != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!Username.equals(other.Username))
+		} else if (!username.equals(other.username))
 			return false;
 		if (senha == null) {
 			if (other.senha != null)
