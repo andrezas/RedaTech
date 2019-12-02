@@ -33,7 +33,6 @@ public class Usuario implements Identificavel{
 	public void setGrupo(String grupo) {
 		this.grupo = grupo;
 	}
-	private String instituicao;
 	
 	public Long getId() {
 		return id;
@@ -72,12 +71,7 @@ public class Usuario implements Identificavel{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getInstituicao() {
-		return instituicao;
-	}
-	public void setInstituicao(String instituicao) {
-		this.instituicao = instituicao;
-	}
+	
 	
 	@Override
 	public int hashCode() {
@@ -85,7 +79,6 @@ public class Usuario implements Identificavel{
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((instituicao == null) ? 0 : instituicao.hashCode());
 		result = prime * result + ((nascimento == null) ? 0 : nascimento.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -110,11 +103,6 @@ public class Usuario implements Identificavel{
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (instituicao == null) {
-			if (other.instituicao != null)
-				return false;
-		} else if (!instituicao.equals(other.instituicao))
 			return false;
 		if (nascimento == null) {
 			if (other.nascimento != null)

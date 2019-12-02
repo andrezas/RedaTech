@@ -5,8 +5,8 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-	<title>Redações</title>
-
+	<title>Home</title>
+	
 </h:head>
 <body style="background-color:#E6E8FA;">
 	<h:form id="formMenu">
@@ -25,19 +25,21 @@
 		<p:dataTable id="basicDT" var="redacao"
 			value="#{redacaoBean.entidades}">
 			<f:facet name="header">
-            Basic
+            Redações
         </f:facet>
-			<p:column headerText="Id">
-				<h:outputText value="#{redacao.id}" />
-			</p:column>
-			<p:column headerText="Nota">
-				<h:outputText value="#{redacao.notaFinal}" />
+			<p:column headerText="Aluno">
+				<h:outputText value="#{aluno.nome}" />
 			</p:column>
 			<p:column headerText="Tema">
 				<h:outputText value="#{readaco.tema}" />
 			</p:column>
-			<p:column headerText="Data">
-				<h:outputText value="#{redacao.data}" />
+			<p:column style="width:32px;text-align: center">
+				<p:commandButton 
+					oncomplete="PF('redDialog').show()" update=":form:redDetail" icon="fa fa-file-text"
+					title="View">
+					<f:setPropertyActionListener value="#{redacao}"
+						target="#{redacaoBean.entidade}" />
+				</p:commandButton>
 			</p:column>
 			<p:column style="width:32px;text-align: center">
 				<p:commandButton 
@@ -49,7 +51,7 @@
 			</p:column>
 		</p:dataTable>
 	
-	<p:dialog header="Redacao" widgetVar="redDialog" modal="true"
+	<p:dialog header="Adicionar tema" widgetVar="redDialog" modal="true"
 		showEffect="fade" hideEffect="fade" resizable="true" >
 		<p:outputPanel id="redDetail" style="text-align:center;" >
 			<p:panelGrid columns="2" rendered="#{not empty redacaoBean.entidade}">
@@ -57,8 +59,7 @@
 			</p:panelGrid>
 		</p:outputPanel>
 	</p:dialog>
-	<p:button outcome="redacao.xhtml" value="Adicionar redação" />
 	</h:form>
-	<ui:include src="./menu.xhtml" />
+	<ui:include src="./menu2.xhtml" />
 </body>
 </html>
