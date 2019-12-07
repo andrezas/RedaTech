@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Correção</title>
+</h:head>
+
+
+<h:body style="background-color: #571758">
+	<ui:include src="menu2.xhtml" />
+	<p:messages />
+	<p:panelGrid columns="2" layout="grid" >
+		<p:panel>
+		<h:outputText id="display" value="#{redacaoBean.entidade.redacao}" escape="false" />
+		</p:panel>
+		<p:panel>
+			<h:form>
+				<p:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<h:outputText value="Competência I:" />
+					<p:selectOneButton value="#{selectOneView.option}">
+						<f:selectItem itemLabel="0" itemValue="0" />
+						<f:selectItem itemLabel="40" itemValue="40" />
+						<f:selectItem itemLabel="80" itemValue="80" />
+						<f:selectItem itemLabel="120" itemValue="120" />
+						<f:selectItem itemLabel="160" itemValue="160" />
+						<f:selectItem itemLabel="200" itemValue="200" />
+					</p:selectOneButton>
+					<h:outputText value="Competência I:" />
+					<p:selectOneButton value="#{selectOneView.option}">
+						<f:selectItem itemLabel="0" itemValue="0" />
+						<f:selectItem itemLabel="40" itemValue="40" />
+						<f:selectItem itemLabel="80" itemValue="80" />
+						<f:selectItem itemLabel="120" itemValue="120" />
+						<f:selectItem itemLabel="160" itemValue="160" />
+						<f:selectItem itemLabel="200" itemValue="200" />
+					</p:selectOneButton>
+					<h:outputText value="Competência II:" />
+					<p:selectOneButton value="#{selectOneView.option}">
+						<f:selectItem itemLabel="0" itemValue="0" />
+						<f:selectItem itemLabel="40" itemValue="40" />
+						<f:selectItem itemLabel="80" itemValue="80" />
+						<f:selectItem itemLabel="120" itemValue="120" />
+						<f:selectItem itemLabel="160" itemValue="160" />
+						<f:selectItem itemLabel="200" itemValue="200" />
+					</p:selectOneButton>
+					<h:outputText value="Competência III:" />
+					<p:selectOneButton value="#{selectOneView.option}">
+						<f:selectItem itemLabel="0" itemValue="0" />
+						<f:selectItem itemLabel="40" itemValue="40" />
+						<f:selectItem itemLabel="80" itemValue="80" />
+						<f:selectItem itemLabel="120" itemValue="120" />
+						<f:selectItem itemLabel="160" itemValue="160" />
+						<f:selectItem itemLabel="200" itemValue="200" />
+					</p:selectOneButton>
+					<h:outputText value="Competência IV:" />
+					<p:selectOneButton value="#{selectOneView.option}">
+						<f:selectItem itemLabel="0" itemValue="0" />
+						<f:selectItem itemLabel="40" itemValue="40" />
+						<f:selectItem itemLabel="80" itemValue="80" />
+						<f:selectItem itemLabel="120" itemValue="120" />
+						<f:selectItem itemLabel="160" itemValue="160" />
+						<f:selectItem itemLabel="200" itemValue="200" />
+					</p:selectOneButton>
+					<h:outputText value="Competência V:" />
+					<p:selectOneButton value="#{selectOneView.option}">
+						<f:selectItem itemLabel="0" itemValue="0" />
+						<f:selectItem itemLabel="40" itemValue="40" />
+						<f:selectItem itemLabel="80" itemValue="80" />
+						<f:selectItem itemLabel="120" itemValue="120" />
+						<f:selectItem itemLabel="160" itemValue="160" />
+						<f:selectItem itemLabel="200" itemValue="200" />
+					</p:selectOneButton>
+
+
+					<p:commandButton value="Submit" update="display" icon="pi pi-check" />
+					<p:spacer />
+
+					<h:outputText value="Selected:" />
+					<h:outputText id="display" value="#{selectOneView.option}"
+						style="font-weight: bold" />
+				</p:panelGrid>
+			</h:form>
+		</p:panel>
+	</p:panelGrid>
+</h:body>
+</html>

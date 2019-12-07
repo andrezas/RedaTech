@@ -6,9 +6,9 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>Home</title>
-	
+
 </h:head>
-<body style="background-color:#E6E8FA;">
+<body style="background-color: #E6E8FA;">
 	<h:form id="formMenu">
 		<p:menubar>
 			<f:facet name="options">
@@ -33,32 +33,29 @@
 			<p:column headerText="Tema">
 				<h:outputText value="#{readaco.tema}" />
 			</p:column>
-			<p:column style="width:32px;text-align: center">
-				<p:commandButton 
-					oncomplete="PF('redDialog').show()" update=":form:redDetail" icon="fa fa-file-text"
-					title="View">
+			<!-- <p:column style="width:32px;text-align: center">
+				<p:commandButton oncomplete="PF('redDialog').show()"
+					update=":form:redDetail" icon="fa fa-file-text" title="View">
 					<f:setPropertyActionListener value="#{redacao}"
 						target="#{redacaoBean.entidade}" />
 				</p:commandButton>
 			</p:column>
-			<p:column style="width:32px;text-align: center">
-				<p:commandButton 
-					oncomplete="PF('redDialog').show()" update=":form:redDetail" icon="fa fa-file-text"
-					title="View">
-					<f:setPropertyActionListener value="#{redacao}"
-						target="#{redacaoBean.entidade}" />
-				</p:commandButton>
+			 -->
+			<p:column headerText="Ações">
+				<p:button outcome="correcao.xhtml" value="Corrigir"/>
 			</p:column>
 		</p:dataTable>
-	
-	<p:dialog header="Adicionar tema" widgetVar="redDialog" modal="true"
-		showEffect="fade" hideEffect="fade" resizable="true" >
-		<p:outputPanel id="redDetail" style="text-align:center;" >
-			<p:panelGrid columns="2" rendered="#{not empty redacaoBean.entidade}">
-				<h:outputText escape="false" value="#{redacaoBean.entidade.redacao}" />
-			</p:panelGrid>
-		</p:outputPanel>
-	</p:dialog>
+
+		<p:dialog header="Adicionar tema" widgetVar="redDialog" modal="true"
+			showEffect="fade" hideEffect="fade" resizable="true">
+			<p:outputPanel id="redDetail" style="text-align:center;">
+				<p:panelGrid columns="2"
+					rendered="#{not empty redacaoBean.entidade}">
+					<h:outputText escape="false"
+						value="#{redacaoBean.entidade.redacao}" />
+				</p:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
 	</h:form>
 	<ui:include src="./menu2.xhtml" />
 </body>

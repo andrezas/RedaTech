@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,7 +18,7 @@ import org.primefaces.model.UploadedFile;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Redacao;
 import br.edu.ifpb.esperanca.daw2.redatech.services.RedacaoService;
 
-@ViewScoped
+@SessionScoped
 @Named
 public class RedacaoBean implements Serializable {
 	@Inject
