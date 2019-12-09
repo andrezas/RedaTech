@@ -21,7 +21,8 @@ public class Redacao implements Identificavel{
 	private Integer notaFinal;
 	private String tema;
 	private Date data;
-	
+	private Byte img;
+
 	@ManyToOne
 	@JoinColumn(name ="id_aluno")
 	private Aluno autor;
@@ -31,6 +32,13 @@ public class Redacao implements Identificavel{
 	
 	private String redacao;
 	
+	public Byte getImg() {
+		return img;
+	}
+
+	public void setImg(Byte img) {
+		this.img = img;
+	}
 	
 	public Date getData() {
 		return data;
@@ -93,7 +101,9 @@ public class Redacao implements Identificavel{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((img == null) ? 0 : img.hashCode());
 		result = prime * result + ((notaFinal == null) ? 0 : notaFinal.hashCode());
 		result = prime * result + ((notacompetencia == null) ? 0 : notacompetencia.hashCode());
 		result = prime * result + ((redacao == null) ? 0 : redacao.hashCode());
@@ -115,10 +125,20 @@ public class Redacao implements Identificavel{
 				return false;
 		} else if (!autor.equals(other.autor))
 			return false;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (img == null) {
+			if (other.img != null)
+				return false;
+		} else if (!img.equals(other.img))
 			return false;
 		if (notaFinal == null) {
 			if (other.notaFinal != null)
@@ -141,5 +161,6 @@ public class Redacao implements Identificavel{
 		} else if (!tema.equals(other.tema))
 			return false;
 		return true;
-	}	
+	}
+
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -12,9 +13,12 @@
 <h:body style="background-color: #571758">
 	<ui:include src="menu2.xhtml" />
 	<p:messages />
-	<p:panelGrid columns="2" layout="grid" >
+	<p:panelGrid columns="3" layout="grid">
 		<p:panel>
-		<h:outputText id="display" value="#{redacaoBean.entidade.redacao}" escape="false" />
+			<h:outputText id="display" value="#{redacaoBean.entidade.id}"
+				escape="false" />
+			<h:outputText id="display" value="#{redacaoBean.entidade.redacao}"
+				escape="false" />
 		</p:panel>
 		<p:panel>
 			<h:form>
@@ -73,13 +77,12 @@
 						<f:selectItem itemLabel="160" itemValue="160" />
 						<f:selectItem itemLabel="200" itemValue="200" />
 					</p:selectOneButton>
-					
+
 					<h3>Comentário:</h3>
-   					<p:inputTextarea rows="6" cols="33" />
-					
+					<p:inputTextarea rows="6" cols="33" />
+
 					<p:commandButton value="Salvar" update="display" icon="pi pi-check" />
 					<p:spacer />
-						
 				</p:panelGrid>
 			</h:form>
 		</p:panel>

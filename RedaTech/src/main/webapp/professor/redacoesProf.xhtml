@@ -21,17 +21,25 @@
 	</h:form>
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
-
+		<p:commandButton id="Autalizar" value="Atualizar"
+					icon="fa fa-fw fa-sign-out" action="#{redacaoBean.limpar()}"
+					ajax="false" />
 		<p:dataTable id="basicDT" var="redacao"
 			value="#{redacaoBean.entidades}">
 			<f:facet name="header">
             Redações
         </f:facet>
+        <p:column headerText="Id">
+				<h:outputText value="#{redacao.id}" />
+			</p:column>
 			<p:column headerText="Aluno">
-				<h:outputText value="#{aluno.nome}" />
+				<h:outputText value="#{redacao.autor.nome}" />
 			</p:column>
 			<p:column headerText="Tema">
 				<h:outputText value="#{readaco.tema}" />
+			</p:column>
+			<p:column headerText="Tema">
+				<h:outputText value="#{readaco.redacao}" />
 			</p:column>
 			<!-- <p:column style="width:32px;text-align: center">
 				<p:commandButton oncomplete="PF('redDialog').show()"
