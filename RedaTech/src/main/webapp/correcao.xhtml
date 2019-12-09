@@ -73,14 +73,13 @@
 						<f:selectItem itemLabel="160" itemValue="160" />
 						<f:selectItem itemLabel="200" itemValue="200" />
 					</p:selectOneButton>
-
-
-					<p:commandButton value="Submit" update="display" icon="pi pi-check" />
+					
+					<h3>Comentário:</h3>
+   					<p:inputTextarea rows="6" cols="33" />
+					
+					<p:commandButton value="Salvar" update="display" icon="pi pi-check" />
 					<p:spacer />
-
-					<h:outputText value="Selected:" />
-					<h:outputText id="display" value="#{selectOneView.option}"
-						style="font-weight: bold" />
+						
 				</p:panelGrid>
 			</h:form>
 		</p:panel>

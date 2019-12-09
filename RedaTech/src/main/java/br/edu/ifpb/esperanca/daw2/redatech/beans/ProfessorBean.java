@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -11,7 +12,7 @@ import javax.inject.Named;
 import br.edu.ifpb.esperanca.daw2.redatech.entities.Professor;
 import br.edu.ifpb.esperanca.daw2.redatech.services.ProfessorService;
 
-@ViewScoped
+@RequestScoped
 @Named
 public class ProfessorBean implements Serializable {
 	@Inject
@@ -20,6 +21,16 @@ public class ProfessorBean implements Serializable {
 	protected Professor entidade;
 
 	protected Collection<Professor> entidades;
+	
+	private String opcao;
+
+	public String getOpcao() {
+		return opcao;
+	}
+
+	public void setOpcao(String opcao) {
+		this.opcao = opcao;
+	}
 
 	public ProfessorBean() {
 	}
