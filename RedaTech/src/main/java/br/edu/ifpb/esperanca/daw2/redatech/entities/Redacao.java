@@ -22,6 +22,7 @@ public class Redacao implements Identificavel{
 	private Integer notaFinal;
 	private String tema;
 	private Date data;
+	//ytyjtyjhgj
 	@Lob
 	private byte[] img;
 
