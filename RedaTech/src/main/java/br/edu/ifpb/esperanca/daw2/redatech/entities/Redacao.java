@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +22,8 @@ public class Redacao implements Identificavel{
 	private Integer notaFinal;
 	private String tema;
 	private Date data;
-	private Byte img;
+	@Lob
+	private byte[] img;
 
 	@ManyToOne
 	@JoinColumn(name ="id_aluno")
@@ -32,11 +34,11 @@ public class Redacao implements Identificavel{
 	
 	private String redacao;
 	
-	public Byte getImg() {
+	public byte[] getImg() {
 		return img;
 	}
 
-	public void setImg(Byte img) {
+	public void setImg(byte[] img) {
 		this.img = img;
 	}
 	
